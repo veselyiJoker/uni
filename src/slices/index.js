@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { headerReducer } from './headerSlice'
+import { mainReducer } from './mainSlice'
 
-export default configureStore({
+export const store = configureStore({
     reducer: {
-        header: headerReducer,
+        main: mainReducer,
     },
 })

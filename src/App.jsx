@@ -3,6 +3,7 @@ import {
     Routes, 
     Route,
 } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 import Home from './containers/Home/Home'
 import AboutUs from './containers/About/AboutUs/AboutUs'
 import CompanyStructure from './containers/About/CompanyStructure/CompanyStructure'
@@ -10,7 +11,7 @@ import Licenses from './containers/About/licenses/Licenses'
 import StorageSystem from './containers/About/StorageSystem/StorageSystem'
 import History from './containers/About/History/History'
 import Documents from './containers/About/Documents/Documents'
-import Vacancies from './containers/About/Vacancies/Vacancies'
+import Vacancies from './containers/Vacancies/Vacancies'
 import Events from './containers/About/Events/Events'
 import Distribution from './containers/Distribution/Distribution/Distribution'
 import EpicFavreCosmetics from './containers/Distribution/EpicFavre/Cosmetics/Cosmetics'
@@ -22,22 +23,27 @@ import StrategicPartners from './containers/Distribution/StrategicPartners/Strat
 import ATCClassification from './containers/Nomenclature/ATCClassification/ATCClassification'
 import DomesticManufacturersProducts from './containers/Nomenclature/DomesticManufacturersProducts/DomesticManufacturersProducts'
 import Nomenclature from './containers/Nomenclature/Nomenclature/Nomenclature'
-import ForByers from './containers/Partnership/ForBuyers/ForByers'
-import ForSupplires from './containers/Partnership/ForSuppliers/ForSuppliers'
+import ForByers from './containers/ForBuyers/ForByers'
+import ForSupplires from './containers/ForSuppliers/ForSuppliers'
 import NotFound from './containers/NotFound/NotFound'
-import { HomeLayout } from './routes/HomeLayout/HomeLayout'
+import { Layout } from './routes/Layout/Layout'
 import { AboutLayout } from './routes/AboutLayout/AboutLayout'
 import { DistributionLayout } from './routes/DistributionLayout/DistributionLayout'
 import { NomenclatureLayout } from './routes/NomenclatureLayout/NomenclatureLayout'
 import { EpivFavreLayout } from './routes/DistributionLayout/EpicFavreLayout/EpicFavreLayout'
 import { Les3ChenesLayout } from './routes/DistributionLayout/les3ChenesLayout/Les3ChenesLayout'
-
+import {
+    I18nProvider,
+} from './i18n'
 
 const App = () => {
+
+    const SelectedLocalization = useSelector(state => state.main.localization)
+
     return (
-        <>
+        <I18nProvider locale={ SelectedLocalization }>
             <Routes>
-                <Route path='/' element={ <HomeLayout /> }>
+                <Route path='/' element={ <Layout /> }>
                     <Route index element={ <Home /> } />
                     <Route path='about' element={ <AboutLayout /> }>
                         <Route index element={ <AboutUs /> } />
@@ -46,7 +52,6 @@ const App = () => {
                         <Route path='storage-system' element={ <StorageSystem />} />
                         <Route path='history' element={ <History /> } />
                         <Route path='documents' element={ <Documents /> } />
-                        <Route path='vacancies' element={ <Vacancies /> } />
                         <Route path='events' element={ <Events /> } />
                     </Route>
                     <Route path='distribution' element={ <DistributionLayout /> }>
@@ -69,10 +74,11 @@ const App = () => {
                     </Route>
                     <Route path='for-byers' element={ <ForByers /> } />
                     <Route path='for-suppliers' element={ <ForSupplires /> } />
+                    <Route path='vacancies' element={ <Vacancies /> } />
                     <Route path='*' element={ <NotFound /> } />
                 </Route>
             </Routes>
-        </>
+        </I18nProvider>
     )
 }
 
