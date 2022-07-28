@@ -12,6 +12,7 @@ export const StyledHeaderAbout = styled.div`
     border-bottom: 1px solid #ccc;
     border-left: 1px solid #ccc;
     background: #fff;
+    z-index: 13;
 `
 
 export const FeaturedContainer = styled.div`

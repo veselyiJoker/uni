@@ -4,6 +4,7 @@ export const StyledLocalization = styled.div`
     position: absolute;
     top: 20px;
     right: 20px;
+    z-index: 13;
 `
 
 export const SelectLocalizationBtn = styled.button`

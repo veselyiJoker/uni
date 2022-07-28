@@ -20,6 +20,7 @@ import {
 import { translate } from '../../i18n/messages/translate'
 
 const Header = () => {
+    
     const i18nGroup = 'header.'
 
     const [ openedMenuHref, setOpenedMenuHref ] = useState('')
@@ -46,7 +47,6 @@ const Header = () => {
     }
 
     const handlerHeaderPopupMouseLeave = () => {
-        console.log('блять');
         setOpenedMenuHref('') 
     }
 

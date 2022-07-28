@@ -10,7 +10,8 @@ export const StyledHeaderDistribution = styled.div`
     border-right: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
     border-left: 1px solid #ccc;
-    background: #fff;  
+    background: #fff;
+    z-index: 13;
 `
 
 export const FeaturedContainer = styled.div`

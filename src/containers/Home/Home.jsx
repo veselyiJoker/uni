@@ -1,12 +1,13 @@
 import React from 'react'
 import { HomeSlider } from '../../components/HomeSlider/HomeSlider'
+import PopupsMenu from '../../components/PopupsMenu/PopupsMenu'
 
 const Home = () => {
 
     return (
         <section>
-            <h1>Унифарм</h1>
             <HomeSlider />
+            <PopupsMenu />
         </section>
     )
 }
