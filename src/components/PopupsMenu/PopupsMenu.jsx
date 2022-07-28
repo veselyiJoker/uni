@@ -1,45 +1,34 @@
 import React from 'react'
-import { StyledPopupsMenu } from './style'
+import { homePopupAttributes } from '../../constants/constants'
+import PopupBtnContacts from './PopupBtnContacts/PopupBtnContacts'
+import PopupBtnExclusiveDistribution from './PopupBtnExclusiveDistribution/PopupBtnExclusiveDistribution'
+import PopupBtnPartnerСompanies from './PopupBtnPartnerСompanies/PopupBtnPartnerСompanies'
+import PopupBtnRetailNetwork from './PopupBtnRetailNetwork/PopupBtnRetailNetwork'
+import PopupBtnStrategicPartners from './PopupBtnStrategicPartners/PopupBtnStrategicPartners'
+import { 
+    StyledPopupsMenu,
+    List,
+    Item
+ } from './styles'
 
 const PopupsMenu = () => {
 
-    const popupsBtnsAttributes = [
-        'partners',
-        '',
-        '',
-        '',
-        ''
-    ];
-
     return (
         <StyledPopupsMenu>
-            <ul>
-                <li>
-                    <button>
-                        popup 1
-                    </button>
-                </li>
-                <li>
-                    <button>
-                        popup 2
-                    </button>
-                </li>
-                <li>
-                    <button>
-                        popup 3
-                    </button>
-                </li>
-                <li>
-                    <button>
-                        popup 4
-                    </button>
-                </li>
-                <li>
-                    <button>
-                        popup 5
-                    </button>
-                </li>
-            </ul>
+            <List>
+                <Item>
+                    <PopupBtnPartnerСompanies />
+                </Item>
+                <Item>
+                    <PopupBtnExclusiveDistribution />
+                </Item>
+                <Item>
+                    <PopupBtnContacts />
+                </Item>
+                <Item>
+                    <PopupBtnStrategicPartners />
+                </Item>
+            </List>
         </StyledPopupsMenu>
     )
 }

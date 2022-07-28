@@ -16,7 +16,7 @@ export const HeaderNomenclature = () => {
     return (
         <StyledHeaderNomenclature>
             <FeaturedContainer>
-                <FeaturedLink to='/about'>
+                <FeaturedLink to='/nomenclature'>
                     { translate(`${ i18nGroup }featured`) }
                 </FeaturedLink>
                 <p>

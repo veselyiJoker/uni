@@ -19,7 +19,7 @@ export const HeaderDistribution = () => {
     return (
         <StyledHeaderDistribution>
             <FeaturedContainer>
-                <FeaturedLink to='/about'>
+                <FeaturedLink to='/distribution'>
                     { translate(`${ i18nGroup }featured`) }
                 </FeaturedLink>
                 <p>
