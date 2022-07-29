@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const StyledPopupsMenu = styled.section`
+export const StyledOpenPopupMenu = styled.section`
     
 `
 

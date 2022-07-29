@@ -9,7 +9,7 @@ import {
 } from './styles'
 
 
-export const HomeSlider = () => {
+const HomeSlider = () => {
     
     const settings = {
         dots: true,
@@ -34,3 +34,5 @@ export const HomeSlider = () => {
         </StyledHomeSlider>
     )
 }
+
+export default HomeSlider
