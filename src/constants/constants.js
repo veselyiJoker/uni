@@ -1,9 +1,9 @@
 export const URL = 'http://localhost:3000'
 
-export const homePopupAttributes = {
-    partnerСompanies: 'partnerСompanies',
-    retailNetwork: 'retailNetwork',
-    exclusiveDistribution: 'exclusiveDistribution',
-    contacts: 'contacts',
-    strategicPartners: 'strategicPartners'
+export const HOME_TILES_TYPES = {
+    PARTNER_COMPANIES: 'partnerСompanies',
+    RETAIL_NETWORK: 'retailNetwork',
+    EXCLUSIVE_DISTRIBUTION: 'exclusiveDistribution',
+    CONTACTS: 'contacts',
+    EVENTS: 'events'
 }

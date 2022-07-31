@@ -89,6 +89,11 @@ const Header = () => {
                                 </NavLink>
                             </NavItem>
                             <NavItem>
+                                <NavLink to = '/retail-chain'>
+                                    { translate(`${ i18nGroup }retailChain`) }
+                                </NavLink>
+                            </NavItem>
+                            <NavItem>
                                 <NavLink
                                     to = '/for-byers'
                                     onMouseOver = { handlerNavItemMouseOver }
@@ -102,11 +107,6 @@ const Header = () => {
                                     onMouseOver = { handlerNavItemMouseOver }
                                 >
                                     { translate(`${ i18nGroup }forSuppliers`) }
-                                </NavLink>
-                            </NavItem>
-                            <NavItem>
-                                <NavLink to = '/vacancies'>
-                                    { translate(`${ i18nGroup }vacancies`) }
                                 </NavLink>
                             </NavItem>
                         </NavList>

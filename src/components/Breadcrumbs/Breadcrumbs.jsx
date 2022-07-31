@@ -6,7 +6,7 @@ import { translate } from '../../i18n/messages/translate'
 
 export const Breadcrumbs = () => {
 
-    const i18nGroup = 'breadcrumbs.'
+    const i18nGroup = 'header.breadcrumbs.'
     const breadcrumbs = useBreadcrumbs()
 
     return (

@@ -1,15 +1,15 @@
 import React from 'react'
 import HomeSlider from '../../components/HomeSlider/HomeSlider'
-import OpenPopupMenu from '../../components/OpenPopupMenu/OpenPopupMenu'
-import HomePopup from '../../components/HomePopup/HomePopup'
+import HomeTiles from '../../components/HomeTiles/HomeTiles'
+
 
 const Home = () => {
 
     return (
         <section>
             <HomeSlider />
-            <OpenPopupMenu />
-            <HomePopup />
+            <HomeTiles />
+            
         </section>
     )
 }

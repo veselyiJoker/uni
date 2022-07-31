@@ -12,7 +12,7 @@ import {
 
 export const HeaderDistribution = () => {
 
-    const i18nGroup = 'headerDistribution.'
+    const i18nGroup = 'header.dropdownDistribution.'
     const i18nEpicFavre = 'epicFavre.'
     const i18nLes3Chenes = 'les3Chenes.'
 

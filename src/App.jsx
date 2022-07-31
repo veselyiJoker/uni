@@ -7,12 +7,14 @@ import { useSelector } from 'react-redux'
 import Home from './containers/Home/Home'
 import AboutUs from './containers/About/AboutUs/AboutUs'
 import CompanyStructure from './containers/About/CompanyStructure/CompanyStructure'
+import PartnerCompanies from './containers/PartnerCompanies/PartnerCompanies'
 import Licenses from './containers/About/licenses/Licenses'
 import StorageSystem from './containers/About/StorageSystem/StorageSystem'
 import History from './containers/About/History/History'
 import Documents from './containers/About/Documents/Documents'
 import Vacancies from './containers/Vacancies/Vacancies'
 import Events from './containers/About/Events/Events'
+import Contacts from './containers/Contacts/Contacts'
 import Distribution from './containers/Distribution/Distribution/Distribution'
 import EpicFavreCosmetics from './containers/Distribution/EpicFavre/Cosmetics/Cosmetics'
 import EpicFavreDietarySupplements from './containers/Distribution/EpicFavre/DietarySupplements/DietarySupplements'
@@ -23,6 +25,7 @@ import StrategicPartners from './containers/Distribution/StrategicPartners/Strat
 import ATCClassification from './containers/Nomenclature/ATCClassification/ATCClassification'
 import DomesticManufacturersProducts from './containers/Nomenclature/DomesticManufacturersProducts/DomesticManufacturersProducts'
 import Nomenclature from './containers/Nomenclature/Nomenclature/Nomenclature'
+import RetailChain from './containers/RetailChain/RetailChain'
 import ForByers from './containers/ForBuyers/ForByers'
 import ForSupplires from './containers/ForSuppliers/ForSuppliers'
 import NotFound from './containers/NotFound/NotFound'
@@ -48,11 +51,14 @@ const App = () => {
                     <Route path='about' element={ <AboutLayout /> }>
                         <Route index element={ <AboutUs /> } />
                         <Route path='structure' element={ <CompanyStructure /> } />
+                        <Route path='partner-companies' element={ <PartnerCompanies />} />
                         <Route path='licenses' element={ <Licenses /> } />
                         <Route path='storage-system' element={ <StorageSystem />} />
                         <Route path='history' element={ <History /> } />
                         <Route path='documents' element={ <Documents /> } />
                         <Route path='events' element={ <Events /> } />
+                        <Route path='vacancies' element={ <Vacancies /> } />
+                        <Route path='contacts' element={ <Contacts /> } />
                     </Route>
                     <Route path='distribution' element={ <DistributionLayout /> }>
                         <Route index element={ <Distribution /> } />
@@ -72,9 +78,9 @@ const App = () => {
                         <Route path='atc-classification' element={ <ATCClassification /> } />
                         <Route path='domestic-manufacturers-products' element={ <DomesticManufacturersProducts /> } />
                     </Route>
+                    <Route path='retail-chain' element={ <RetailChain /> } />
                     <Route path='for-byers' element={ <ForByers /> } />
                     <Route path='for-suppliers' element={ <ForSupplires /> } />
-                    <Route path='vacancies' element={ <Vacancies /> } />
                     <Route path='*' element={ <NotFound /> } />
                 </Route>
             </Routes>

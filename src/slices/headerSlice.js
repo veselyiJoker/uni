@@ -13,4 +13,4 @@ const headerSlice = createSlice({
 })
 
 export const { } = headerSlice.actions
-export const headerReducer = tasksSlice.reducer
+export const headerReducer = headerSlice.reducer

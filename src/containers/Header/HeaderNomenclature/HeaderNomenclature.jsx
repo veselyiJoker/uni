@@ -11,7 +11,7 @@ import {
 
 export const HeaderNomenclature = () => {
 
-    const i18nGroup = 'headerNomenclature.'
+    const i18nGroup = 'header.dropdownNomenclature.'
 
     return (
         <StyledHeaderNomenclature>
