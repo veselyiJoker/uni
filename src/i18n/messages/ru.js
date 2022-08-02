@@ -25,7 +25,7 @@ export default {
             },
             dropdownDistribution: {
                 featured: 'Эксклюзивная дистрибуция',
-                featuredSubtitle: 'Работаем более чем с 100 мировыми производителями.',
+                featuredSubtitle: 'Работаем более чем с 100 мировыми производителями',
                 strategicPartners: 'Стратегические партнёры',
                 epicFavre: {
                     cosmetics: 'Косметика',
@@ -39,7 +39,7 @@ export default {
             },
             dropdownNomenclature: {
                 featured: 'Каталог продукции',
-                featuredSubtitle: 'Представляем более чем 1000 наименований.', 
+                featuredSubtitle: 'Представляем более 1000 наименований', 
                 ATCClassification: 'Анатомо-терапевтическо-химическая классификация',
                 domesticManufacturersProducts: 'Продукция отечественных производителей',
             },
@@ -66,7 +66,11 @@ export default {
                 'for suppliers': 'Поставщикам',
                 'vacancies': 'Вакансии',
                 'contacts': 'Контакты',
-                'retail chain': 'Розничная сеть'
+                'retail chain': 'Розничная сеть',
+                'securities market': 'Ценные бумаги',
+                'personal info': 'Персональная информация',
+                'regulations': 'Нормативные документы',
+                'work documents': 'Рабочие документы',
             },
         },
     }

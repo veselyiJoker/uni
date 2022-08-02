@@ -5,7 +5,8 @@ import {
     FeaturedContainer,
     FeaturedLink,
     List,
-    NomenclatureLink
+    NomenclatureLink,
+    SubList
 } from './styles'
 
 
@@ -23,6 +24,33 @@ export const HeaderNomenclature = () => {
                     { translate(`${ i18nGroup }featuredSubtitle`) }
                 </p>
             </FeaturedContainer>
+            <List>
+                <li>
+                    Каталог продукции
+                    <SubList>
+                        <li>
+                            <NomenclatureLink to='#'>
+                                Лекарственные средства
+                            </NomenclatureLink>
+                        </li>
+                        <li>
+                            <NomenclatureLink to='#'>
+                                Изделия медицинского назначения
+                            </NomenclatureLink>
+                        </li>
+                        <li>
+                            <NomenclatureLink to='#'>
+                                Биологически активные добавки
+                            </NomenclatureLink>
+                        </li>
+                        <li>
+                            <NomenclatureLink to='#'>
+                                Изделия гигиенического назначения
+                            </NomenclatureLink>
+                        </li>
+                    </SubList>
+                </li>
+            </List>
             <List>
                 <li>
                     <NomenclatureLink to='/nomenclature/atc-classification'>

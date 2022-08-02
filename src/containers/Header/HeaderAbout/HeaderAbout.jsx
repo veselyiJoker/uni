@@ -5,7 +5,8 @@ import {
     FeaturedContainer,
     FeaturedLink,
     List,
-    AboutLink
+    AboutLink,
+    SubList
 } from './styles'
 
 
@@ -35,22 +36,44 @@ export const HeaderAbout = () => {
                     </AboutLink>
                 </li>
                 <li>
+                    <AboutLink to='/about/storage-system '>
+                        { translate(`${ i18nGroup }storageSystem`) }
+                    </AboutLink>
+                </li>
+                <li>
+                    <AboutLink to='/about/securities-market'>
+                        Информация о ЗАО "Унифарм" на рынке ценных бумаг
+                    </AboutLink>  
+                </li>
+            </List>
+            <List>
+                <li>
                     <AboutLink to='/about/licenses'>
                         { translate(`${ i18nGroup }licensesAndCertificates`) }
                     </AboutLink>
                 </li>
                 <li>
-                    <AboutLink to='/about/documents'>
-                        { translate(`${ i18nGroup }documents`) }
-                    </AboutLink>
+                    Документы
+                    <SubList>
+                        <li>
+                            <AboutLink to='/about/personal-info'>
+                                Обработка персональных данных
+                            </AboutLink>
+                        </li>
+                        <li>
+                            <AboutLink to='about/regulations'>
+                                Нормативные документы
+                            </AboutLink>
+                        </li>
+                        <li>
+                            <AboutLink to='about/work-documents'>
+                                Рабочие документы
+                            </AboutLink>
+                        </li>
+                    </SubList>
                 </li>
             </List>
             <List>
-                <li>
-                    <AboutLink to='/about/storage-system '>
-                        { translate(`${ i18nGroup }storageSystem`) }
-                    </AboutLink>
-                </li>
                 <li>
                     <AboutLink to='/about/events'>
                         { translate(`${ i18nGroup }events`) }
@@ -61,8 +84,6 @@ export const HeaderAbout = () => {
                         { translate(`${ i18nGroup }history`) }
                     </AboutLink>
                 </li>
-            </List>
-            <List>
                 <li>
                     <AboutLink to='/about/vacancies'>
                         { translate(`${ i18nGroup }vacancies`) }

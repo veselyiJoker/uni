@@ -10,6 +10,10 @@ import CompanyStructure from './containers/About/CompanyStructure/CompanyStructu
 import PartnerCompanies from './containers/PartnerCompanies/PartnerCompanies'
 import Licenses from './containers/About/licenses/Licenses'
 import StorageSystem from './containers/About/StorageSystem/StorageSystem'
+import UnipharmOnTheSecuritiesMarket from './containers/UnipharmOnTheSecuritiesMarket/UnipharmOnTheSecuritiesMarket'
+import PersonalInfo from './containers/PersonalInfo/PersonalInfo'
+import Regulations from './containers/Regulations/Regulations'
+import WorkDocuments from './containers/WorkDocuments/WorkDocuments'
 import History from './containers/About/History/History'
 import Documents from './containers/About/Documents/Documents'
 import Vacancies from './containers/Vacancies/Vacancies'
@@ -39,6 +43,7 @@ import {
     I18nProvider,
 } from './i18n'
 
+
 const App = () => {
 
     const SelectedLocalization = useSelector(state => state.main.localization)
@@ -54,11 +59,15 @@ const App = () => {
                         <Route path='partner-companies' element={ <PartnerCompanies />} />
                         <Route path='licenses' element={ <Licenses /> } />
                         <Route path='storage-system' element={ <StorageSystem />} />
+                        <Route path='securities-market' element={ <UnipharmOnTheSecuritiesMarket /> } />
                         <Route path='history' element={ <History /> } />
                         <Route path='documents' element={ <Documents /> } />
                         <Route path='events' element={ <Events /> } />
                         <Route path='vacancies' element={ <Vacancies /> } />
                         <Route path='contacts' element={ <Contacts /> } />
+                        <Route path='personal-info' element={ <PersonalInfo /> } />
+                        <Route path='regulations' element={ <Regulations /> } />
+                        <Route path='work-documents' element={ <WorkDocuments /> } />
                     </Route>
                     <Route path='distribution' element={ <DistributionLayout /> }>
                         <Route index element={ <Distribution /> } />

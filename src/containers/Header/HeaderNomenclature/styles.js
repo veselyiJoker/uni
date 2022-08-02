@@ -37,3 +37,11 @@ export const List = styled.ul`
 export const NomenclatureLink = styled(Link)`
     text-decoration: none;
 `
+
+export const SubList = styled.ul`
+    margin-top: 10px;
+    list-style: none;
+    li {
+        marging-bottom: 20px;
+    }
+`

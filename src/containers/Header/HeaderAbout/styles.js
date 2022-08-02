@@ -35,6 +35,14 @@ export const List = styled.ul`
     }
 `
 
+export const SubList = styled.ul`
+    margin-top: 10px;
+    list-style: none;
+    li {
+        marging-bottom: 20px;
+    }
+`
+
 export const AboutLink = styled(Link)`
     text-decoration: none;
 `

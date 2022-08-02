@@ -25,7 +25,7 @@ export default {
             },
             dropdownDistribution: {
                 featured: 'Exclusive distribution',
-                featuredSubtitle: 'We work with more than 100 global manufacturers.',
+                featuredSubtitle: 'We work with more than 100 global manufacturers',
                 strategicPartners: 'Strategic partners',
                 epicFavre: {
                     cosmetics: 'Cosmetics',
@@ -39,7 +39,7 @@ export default {
             },
             dropdownNomenclature: {
                 featured: 'Product Catalog',
-                featuredSubtitle: 'We represent over 1000 products.',
+                featuredSubtitle: 'We represent over 1000 products',
                 ATCClassification: 'Anatomical Therapeutic Chemical Classification System',
                 domesticManufacturersProducts: 'Products of domestic manufacturers',
             },
@@ -66,7 +66,11 @@ export default {
                 'for suppliers': 'For suppliers',
                 'vacancies': 'Vacancies',
                 'contacts': 'Contacts',
-                'retail chain': 'Retail chain'
+                'retail chain': 'Retail chain',
+                'securities market': 'Securities market',
+                'personal info': 'Personal info',
+                'regulations': 'Regulations',
+                'work documents': 'Work documents',
             },
         },
     }
