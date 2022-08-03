@@ -29,7 +29,7 @@ export const HeaderNomenclature = () => {
                     Каталог продукции
                     <SubList>
                         <li>
-                            <NomenclatureLink to='#'>
+                            <NomenclatureLink to='/nomenclature'>
                                 Лекарственные средства
                             </NomenclatureLink>
                         </li>
