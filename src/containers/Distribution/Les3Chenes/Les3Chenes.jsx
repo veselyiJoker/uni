@@ -1,15 +1,14 @@
 import React from 'react'
 import { motion } from 'framer-motion/dist/framer-motion'
-import { pagesTransition } from '../../constants/constants'
+import { pagesTransition } from '../../../constants/constants'
 
-const Contacts = () => {
+const Les3Chenes = () => {
     return (
         <motion.section 
             { ...pagesTransition }
         >
-            <h2>Контакты</h2>
+            <h2>Les 3 chenes</h2>
         </motion.section>
     )
 }
-
-export default Contacts
+export default Les3Chenes

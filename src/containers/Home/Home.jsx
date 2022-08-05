@@ -2,14 +2,13 @@ import React from 'react'
 import HomeSlider from '../../components/HomeSlider/HomeSlider'
 import HomeTiles from '../../components/HomeTiles/HomeTiles'
 import { motion } from 'framer-motion/dist/framer-motion'
+import { pagesTransition } from '../../constants/constants'
 
 const Home = () => {
 
     return (
         <motion.section
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            { ...pagesTransition  }
         >
             <HomeSlider />
             <HomeTiles />    

@@ -37,16 +37,16 @@ export const HeaderDistribution = () => {
                     <SubList>
                         <li>
                             <DistributionLink to='distribution/epic-favre'>
-                                { translate(`${ i18nGroup + i18nEpicFavre }cosmetics`) }
-                            </DistributionLink>
-                        </li>
-                        <li>
-                            <DistributionLink to='/distribution/epic-favre/biologically-active-additives'>
                                 { translate(`${ i18nGroup + i18nEpicFavre }biologicallyActiveAdditives`) }
                             </DistributionLink>
                         </li>
                         <li>
-                            <DistributionLink to='/distribution/epic-favre/sports-nutrion'>
+                            <DistributionLink to='distribution/epic-favre?type=cosmetics'>
+                                { translate(`${ i18nGroup + i18nEpicFavre }cosmetics`) }
+                            </DistributionLink>
+                        </li>
+                        <li>
+                            <DistributionLink to='/distribution/epic-favre?type=sports-nutrion'>
                                 { translate(`${ i18nGroup + i18nEpicFavre }sportsNutrition`) }
                             </DistributionLink>
                         </li>
@@ -59,12 +59,12 @@ export const HeaderDistribution = () => {
                     <SubList>
                         <li>
                             <DistributionLink to='/distribution/les-3-chenes'>
-                                { translate(`${ i18nGroup + i18nLes3Chenes }cosmetics`) }
+                                { translate(`${ i18nGroup + i18nLes3Chenes }biologicallyActiveAdditives`) }
                             </DistributionLink>
                         </li>
                         <li>
-                            <DistributionLink to='/distribution/les-3-chenes/biologically-active-additives'>
-                                { translate(`${ i18nGroup + i18nLes3Chenes }biologicallyActiveAdditives`) }
+                            <DistributionLink to='/distribution/les-3-chenes?type=cosmetics'>
+                                { translate(`${ i18nGroup + i18nLes3Chenes }cosmetics`) }
                             </DistributionLink>
                         </li>
                     </SubList>

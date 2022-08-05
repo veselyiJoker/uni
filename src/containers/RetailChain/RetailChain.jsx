@@ -1,10 +1,14 @@
 import React from 'react'
+import { motion } from 'framer-motion/dist/framer-motion'
+import { pagesTransition } from '../../constants/constants'
 
 const RetailChain = () => {
     return (
-        <section>
-            <h2>Розничная Сеть</h2>
-        </section>
+        <motion.section 
+            { ...pagesTransition }
+        >
+            <h2>Розничная сеть</h2>
+        </motion.section>
     )
 }
 

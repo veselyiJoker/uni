@@ -1,10 +1,14 @@
 import React from 'react'
+import { motion } from 'framer-motion/dist/framer-motion'
+import { pagesTransition } from '../../../constants/constants'
 
 const CompanyStructure = () => {
     return (
-        <section>
+        <motion.section 
+            { ...pagesTransition }
+        >
             <h2>Структура компании</h2>
-        </section>
+        </motion.section>
     )
 }
 

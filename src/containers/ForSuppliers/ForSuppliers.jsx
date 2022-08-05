@@ -1,11 +1,16 @@
 import React from 'react'
+import { motion } from 'framer-motion/dist/framer-motion'
+import { pagesTransition } from '../../constants/constants'
 
 const ForSuppliers = () => {
     return (
-        <section>
+        <motion.section 
+            { ...pagesTransition }
+        >
             <h2>Поставщикам</h2>
-        </section>
+        </motion.section>
     )
 }
+
 
 export default ForSuppliers

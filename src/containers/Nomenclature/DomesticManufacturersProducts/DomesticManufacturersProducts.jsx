@@ -1,10 +1,14 @@
 import React from 'react'
+import { motion } from 'framer-motion/dist/framer-motion'
+import { pagesTransition } from '../../../constants/constants'
 
 const DomesticManufacturersProducts = () => {
     return (
-        <section>
+        <motion.section 
+            { ...pagesTransition }
+        >
             <h2>Продукция отечественных производителей</h2>
-        </section>
+        </motion.section>
     )
 }
 

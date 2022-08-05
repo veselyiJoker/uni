@@ -7,3 +7,9 @@ export const HOME_TILES_TYPES = {
     CONTACTS: 'contacts',
     EVENTS: 'events'
 }
+
+export const pagesTransition = {
+    initial: { opacity: 0 },
+    animate: { opacity: 1 },
+    exit: { opacity: 0 },
+}

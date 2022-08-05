@@ -56,17 +56,17 @@ export const HeaderAbout = () => {
                     { translate(`${ i18nGroup }documents`) }
                     <SubList>
                         <li>
-                            <AboutLink to='/about/personal-info'>
+                            <AboutLink to='/about/documents?type=personal-info'>
                                 { translate(`${ i18nGroup }personalData`) }
                             </AboutLink>
                         </li>
                         <li>
-                            <AboutLink to='about/regulations'>
+                            <AboutLink to='about/documents?type=regulations'>
                                 { translate(`${ i18nGroup }regulations`) }
                             </AboutLink>
                         </li>
                         <li>
-                            <AboutLink to='about/work-documents'>
+                            <AboutLink to='about/documents?type=work-documents'>
                                 { translate(`${ i18nGroup }workDocuments`) }
                             </AboutLink>
                         </li>

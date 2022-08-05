@@ -1,10 +1,14 @@
 import React from 'react'
+import { motion } from 'framer-motion/dist/framer-motion'
+import { pagesTransition } from '../../../constants/constants'
 
 const History = () => {
     return (
-        <section>
-            <h2>История компании</h2>
-        </section>
+        <motion.section 
+            { ...pagesTransition }
+        >
+            <h2>История</h2>
+        </motion.section>
     )
 }
 

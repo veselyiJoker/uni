@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-export const StyledHomeTiles = styled.section`
+export const StyledHomeTiles = styled.div`
     
 `
 

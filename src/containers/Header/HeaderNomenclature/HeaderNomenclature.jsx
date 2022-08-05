@@ -34,17 +34,17 @@ export const HeaderNomenclature = () => {
                             </NomenclatureLink>
                         </li>
                         <li>
-                            <NomenclatureLink to='/nomenclature'>
+                            <NomenclatureLink to='/nomenclature?type=medicalProducts'>
                                 { translate(`${ i18nGroup }medicalProducts`) }
                             </NomenclatureLink>
                         </li>
                         <li>
-                            <NomenclatureLink to='/nomenclature'>
+                            <NomenclatureLink to='/nomenclature?type=biologicallyActiveAdditives'>
                                 { translate(`${ i18nGroup }biologicallyActiveAdditives`) }
                             </NomenclatureLink>
                         </li>
                         <li>
-                            <NomenclatureLink to='/nomenclature'>
+                            <NomenclatureLink to='/nomenclature?type=hygieneProducts'>
                                 { translate(`${ i18nGroup }hygieneProducts`) }
                             </NomenclatureLink>
                         </li>
