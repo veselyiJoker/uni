@@ -65,7 +65,7 @@ export default {
                 'distribution': 'Distribution',
                 'epic favre': 'Epic favre',
                 'les 3 chenes': 'Les 3 chenes',
-                'strategic partners': 'Strategic Partners',
+                'strategic partners': 'Strategic partners',
                 'nomenclature': 'Nomenclature',
                 'atc classification': 'ATC Classification',
                 'domestic manufacturers products': 'Domestic manufacturers products',
@@ -75,9 +75,6 @@ export default {
                 'contacts': 'Contacts',
                 'retail chain': 'Retail chain',
                 'securities market': 'Securities market',
-                'personal info': 'Personal info',
-                'regulations': 'Regulations',
-                'work documents': 'Work documents',
             },
         },
     }
