@@ -64,8 +64,6 @@ export default {
                 'events': 'Events',
                 'distribution': 'Distribution',
                 'epic favre': 'Epic favre',
-                'biologically active additives': 'Biologically active additives',
-                'sports nutrion': 'Sports nutrion',
                 'les 3 chenes': 'Les 3 chenes',
                 'strategic partners': 'Strategic Partners',
                 'nomenclature': 'Nomenclature',
