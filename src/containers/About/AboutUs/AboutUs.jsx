@@ -1,10 +1,15 @@
 import React from 'react'
+import { motion } from 'framer-motion/dist/framer-motion'
 
 const AboutUs = () => {
     return (
-        <section>
+        <motion.section
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+        >
             <h2>Общая информация</h2>
-        </section>
+        </motion.section>
     )
 }
 

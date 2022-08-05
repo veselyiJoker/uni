@@ -26,26 +26,26 @@ export const HeaderNomenclature = () => {
             </FeaturedContainer>
             <List>
                 <li>
-                    Каталог продукции
+                    { translate(`${ i18nGroup }productCatalog`) }
                     <SubList>
                         <li>
                             <NomenclatureLink to='/nomenclature'>
-                                Лекарственные средства
+                                { translate(`${ i18nGroup }medicines`) }
                             </NomenclatureLink>
                         </li>
                         <li>
-                            <NomenclatureLink to='#'>
-                                Изделия медицинского назначения
+                            <NomenclatureLink to='/nomenclature'>
+                                { translate(`${ i18nGroup }medicalProducts`) }
                             </NomenclatureLink>
                         </li>
                         <li>
-                            <NomenclatureLink to='#'>
-                                Биологически активные добавки
+                            <NomenclatureLink to='/nomenclature'>
+                                { translate(`${ i18nGroup }biologicallyActiveAdditives`) }
                             </NomenclatureLink>
                         </li>
                         <li>
-                            <NomenclatureLink to='#'>
-                                Изделия гигиенического назначения
+                            <NomenclatureLink to='/nomenclature'>
+                                { translate(`${ i18nGroup }hygieneProducts`) }
                             </NomenclatureLink>
                         </li>
                     </SubList>

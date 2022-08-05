@@ -2,8 +2,10 @@ import React from 'react'
 import {
     Routes, 
     Route,
+    useLocation,
 } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import Header from './containers/Header/Header'
 import Home from './containers/Home/Home'
 import AboutUs from './containers/About/AboutUs/AboutUs'
 import CompanyStructure from './containers/About/CompanyStructure/CompanyStructure'
@@ -21,9 +23,9 @@ import Events from './containers/About/Events/Events'
 import Contacts from './containers/Contacts/Contacts'
 import Distribution from './containers/Distribution/Distribution/Distribution'
 import EpicFavreCosmetics from './containers/Distribution/EpicFavre/Cosmetics/Cosmetics'
-import EpicFavreDietarySupplements from './containers/Distribution/EpicFavre/DietarySupplements/DietarySupplements'
+import EpicFavreBiologicallyActiveAdditives from './containers/Distribution/EpicFavre/BiologicallyActiveAdditives/BiologicallyActiveAdditives'
 import EpicFavreSportsNutrion from './containers/Distribution/EpicFavre/SportsNutrition/SportsNutrion'
-import Les3ChenesDietarySupplements from './containers/Distribution/Les3Chenes/DietarySupplements/DietarySupplements'
+import Les3ChenesBiologicallyActiveAdditives from './containers/Distribution/Les3Chenes/BiologicallyActiveAdditives/BiologicallyActiveAdditives'
 import Les3ChenesCosmetics from './containers/Distribution/Les3Chenes/Cosmetics/Cosmetics'
 import StrategicPartners from './containers/Distribution/StrategicPartners/StrategicPartners'
 import ATCClassification from './containers/Nomenclature/ATCClassification/ATCClassification'
@@ -42,57 +44,62 @@ import { Les3ChenesLayout } from './routes/DistributionLayout/les3ChenesLayout/L
 import {
     I18nProvider,
 } from './i18n'
+import { AnimatePresence } from 'framer-motion/dist/framer-motion'
 
 
 const App = () => {
 
+    const location = useLocation()
     const SelectedLocalization = useSelector(state => state.main.localization)
 
     return (
         <I18nProvider locale={ SelectedLocalization }>
-            <Routes>
-                <Route path='/' element={ <Layout /> }>
-                    <Route index element={ <Home /> } />
-                    <Route path='about' element={ <AboutLayout /> }>
-                        <Route index element={ <AboutUs /> } />
-                        <Route path='structure' element={ <CompanyStructure /> } />
-                        <Route path='partner-companies' element={ <PartnerCompanies />} />
-                        <Route path='licenses' element={ <Licenses /> } />
-                        <Route path='storage-system' element={ <StorageSystem />} />
-                        <Route path='securities-market' element={ <UnipharmOnTheSecuritiesMarket /> } />
-                        <Route path='history' element={ <History /> } />
-                        <Route path='documents' element={ <Documents /> } />
-                        <Route path='events' element={ <Events /> } />
-                        <Route path='vacancies' element={ <Vacancies /> } />
-                        <Route path='contacts' element={ <Contacts /> } />
-                        <Route path='personal-info' element={ <PersonalInfo /> } />
-                        <Route path='regulations' element={ <Regulations /> } />
-                        <Route path='work-documents' element={ <WorkDocuments /> } />
-                    </Route>
-                    <Route path='distribution' element={ <DistributionLayout /> }>
-                        <Route index element={ <Distribution /> } />
-                        <Route path='epic-favre' element={ <EpivFavreLayout /> }>
-                            <Route index element={ <EpicFavreCosmetics /> } />
-                            <Route path='dietary-supplements' element={ <EpicFavreDietarySupplements /> } />
-                            <Route path='sports-nutrion' element={ <EpicFavreSportsNutrion /> } />
+            <Header />
+            <AnimatePresence exitBeforeEnter initial={false}>
+                <Routes location={ location } key={ location.pathname }>
+                    <Route path='/' element={ <Layout /> }>
+                        <Route index element={ <Home /> } />
+                        <Route path='about' element={ <AboutLayout /> }>
+                            <Route index element={ <AboutUs /> } />
+                            <Route path='structure' element={ <CompanyStructure /> } />
+                            <Route path='partner-companies' element={ <PartnerCompanies />} />
+                            <Route path='licenses' element={ <Licenses /> } />
+                            <Route path='storage-system' element={ <StorageSystem />} />
+                            <Route path='securities-market' element={ <UnipharmOnTheSecuritiesMarket /> } />
+                            <Route path='history' element={ <History /> } />
+                            <Route path='documents' element={ <Documents /> } />
+                            <Route path='events' element={ <Events /> } />
+                            <Route path='vacancies' element={ <Vacancies /> } />
+                            <Route path='contacts' element={ <Contacts /> } />
+                            <Route path='personal-info' element={ <PersonalInfo /> } />
+                            <Route path='regulations' element={ <Regulations /> } />
+                            <Route path='work-documents' element={ <WorkDocuments /> } />
                         </Route>
-                        <Route path='les-3-chenes' element={ <Les3ChenesLayout /> }>
-                            <Route index element={ <Les3ChenesCosmetics /> } />
-                            <Route path='dietary-supplements' element={ <Les3ChenesDietarySupplements /> } />
+                        <Route path='distribution' element={ <DistributionLayout /> }>
+                            <Route index element={ <Distribution /> } />
+                            <Route path='epic-favre' element={ <EpivFavreLayout /> }>
+                                <Route index element={ <EpicFavreCosmetics /> } />
+                                <Route path='biologically-active-additives' element={ <EpicFavreBiologicallyActiveAdditives /> } />
+                                <Route path='sports-nutrion' element={ <EpicFavreSportsNutrion /> } />
+                            </Route>
+                            <Route path='les-3-chenes' element={ <Les3ChenesLayout /> }>
+                                <Route index element={ <Les3ChenesCosmetics /> } />
+                                <Route path='biologically-active-additives' element={ <Les3ChenesBiologicallyActiveAdditives /> } />
+                            </Route>
+                            <Route path='strategic-partners' element={ <StrategicPartners /> } />
                         </Route>
-                        <Route path='strategic-partners' element={ <StrategicPartners /> } />
+                        <Route path='nomenclature' element={ <NomenclatureLayout /> }>
+                            <Route index element={ <Nomenclature /> } />
+                            <Route path='atc-classification' element={ <ATCClassification /> } />
+                            <Route path='domestic-manufacturers-products' element={ <DomesticManufacturersProducts /> } />
+                        </Route>
+                        <Route path='retail-chain' element={ <RetailChain /> } />
+                        <Route path='for-byers' element={ <ForByers /> } />
+                        <Route path='for-suppliers' element={ <ForSupplires /> } />
+                        <Route path='*' element={ <NotFound /> } />
                     </Route>
-                    <Route path='nomenclature' element={ <NomenclatureLayout /> }>
-                        <Route index element={ <Nomenclature /> } />
-                        <Route path='atc-classification' element={ <ATCClassification /> } />
-                        <Route path='domestic-manufacturers-products' element={ <DomesticManufacturersProducts /> } />
-                    </Route>
-                    <Route path='retail-chain' element={ <RetailChain /> } />
-                    <Route path='for-byers' element={ <ForByers /> } />
-                    <Route path='for-suppliers' element={ <ForSupplires /> } />
-                    <Route path='*' element={ <NotFound /> } />
-                </Route>
-            </Routes>
+                </Routes>
+            </AnimatePresence>
         </I18nProvider>
     )
 }

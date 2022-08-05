@@ -42,8 +42,8 @@ export const HeaderAbout = () => {
                 </li>
                 <li>
                     <AboutLink to='/about/securities-market'>
-                        Информация о ЗАО "Унифарм" на рынке ценных бумаг
-                    </AboutLink>  
+                        { translate(`${ i18nGroup }securitiesMarketInfo`) }
+                    </AboutLink>
                 </li>
             </List>
             <List>
@@ -53,21 +53,21 @@ export const HeaderAbout = () => {
                     </AboutLink>
                 </li>
                 <li>
-                    Документы
+                    { translate(`${ i18nGroup }documents`) }
                     <SubList>
                         <li>
                             <AboutLink to='/about/personal-info'>
-                                Обработка персональных данных
+                                { translate(`${ i18nGroup }personalData`) }
                             </AboutLink>
                         </li>
                         <li>
                             <AboutLink to='about/regulations'>
-                                Нормативные документы
+                                { translate(`${ i18nGroup }regulations`) }
                             </AboutLink>
                         </li>
                         <li>
                             <AboutLink to='about/work-documents'>
-                                Рабочие документы
+                                { translate(`${ i18nGroup }workDocuments`) }
                             </AboutLink>
                         </li>
                     </SubList>

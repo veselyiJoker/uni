@@ -41,8 +41,8 @@ export const HeaderDistribution = () => {
                             </DistributionLink>
                         </li>
                         <li>
-                            <DistributionLink to='/distribution/epic-favre/dietary-supplements'>
-                                { translate(`${ i18nGroup + i18nEpicFavre }dietarySupplements`) }
+                            <DistributionLink to='/distribution/epic-favre/biologically-active-additives'>
+                                { translate(`${ i18nGroup + i18nEpicFavre }biologicallyActiveAdditives`) }
                             </DistributionLink>
                         </li>
                         <li>
@@ -63,8 +63,8 @@ export const HeaderDistribution = () => {
                             </DistributionLink>
                         </li>
                         <li>
-                            <DistributionLink to='/distribution/les-3-chenes/dietary-supplements'>
-                                { translate(`${ i18nGroup + i18nLes3Chenes }dietarySupplements`) }
+                            <DistributionLink to='/distribution/les-3-chenes/biologically-active-additives'>
+                                { translate(`${ i18nGroup + i18nLes3Chenes }biologicallyActiveAdditives`) }
                             </DistributionLink>
                         </li>
                     </SubList>
