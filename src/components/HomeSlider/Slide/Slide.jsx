@@ -5,7 +5,7 @@ import {
 } from './styles'
 
 
-export const Slide = props => {
+const Slide = props => {
 
     return (
         <StyledSlide>
@@ -13,3 +13,5 @@ export const Slide = props => {
         </StyledSlide>
     )
 }
+
+export default Slide

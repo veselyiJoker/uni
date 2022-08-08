@@ -1,5 +1,5 @@
 import React from 'react'
-import { Slide } from './Slide/Slide'
+import Slide from './Slide/Slide'
 import { 
     StyledHomeSlider,
     PrevArrow,
@@ -10,7 +10,7 @@ import {
 
 
 const HomeSlider = () => {
-    
+
     const settings = {
         dots: true,
         infinite: true,

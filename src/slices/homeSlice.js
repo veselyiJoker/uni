@@ -1,7 +1,153 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-    openedPopupType: ''
+    partners: [
+        {
+            link: '/distribution/strategic-partners',
+            imgUrl: '#',
+            imgAlt: ''
+        },
+        {
+            link: '/distribution/strategic-partners',
+            imgUrl: '#',
+            imgAlt: ''
+        },
+        {
+            link: '/distribution/strategic-partners',
+            imgUrl: '#',
+            imgAlt: ''
+        },
+        {
+            link: '/distribution/strategic-partners',
+            imgUrl: '#',
+            imgAlt: ''
+        },
+        {
+            link: '/distribution/strategic-partners',
+            imgUrl: '#',
+            imgAlt: ''
+        },
+        {
+            link: '/distribution/strategic-partners',
+            imgUrl: '#',
+            imgAlt: ''
+        },
+        {
+            link: '/distribution/strategic-partners',
+            imgUrl: '#',
+            imgAlt: ''
+        },
+        {
+            link: '/distribution/strategic-partners',
+            imgUrl: '#',
+            imgAlt: ''
+        },
+        {
+            link: '/distribution/strategic-partners',
+            imgUrl: '#',
+            imgAlt: ''
+        },
+        {
+            link: '/distribution/strategic-partners',
+            imgUrl: '#',
+            imgAlt: ''
+        },
+        {
+            link: '/distribution/strategic-partners',
+            imgUrl: '#',
+            imgAlt: ''
+        },
+        {
+            link: '/distribution/strategic-partners',
+            imgUrl: '#',
+            imgAlt: ''
+        },
+        {
+            link: '/distribution/strategic-partners',
+            imgUrl: '#',
+            imgAlt: ''
+        },
+        {
+            link: '/distribution/strategic-partners',
+            imgUrl: '#',
+            imgAlt: ''
+        },
+        {
+            link: '/distribution/strategic-partners',
+            imgUrl: '#',
+            imgAlt: ''
+        },
+        {
+            link: '/distribution/strategic-partners',
+            imgUrl: '#',
+            imgAlt: ''
+        },
+        {
+            link: '/distribution/strategic-partners',
+            imgUrl: '#',
+            imgAlt: ''
+        },
+        {
+            link: '/distribution/strategic-partners',
+            imgUrl: '#',
+            imgAlt: ''
+        },
+        {
+            link: '/distribution/strategic-partners',
+            imgUrl: '#',
+            imgAlt: ''
+        },
+        {
+            link: '/distribution/strategic-partners',
+            imgUrl: '#',
+            imgAlt: ''
+        },
+        {
+            link: '/distribution/strategic-partners',
+            imgUrl: '#',
+            imgAlt: ''
+        },
+        {
+            link: '/distribution/strategic-partners',
+            imgUrl: '#',
+            imgAlt: ''
+        },
+        {
+            link: '/distribution/strategic-partners',
+            imgUrl: '#',
+            imgAlt: ''
+        },
+        {
+            link: '/distribution/strategic-partners',
+            imgUrl: '#',
+            imgAlt: ''
+        },
+        {
+            link: '/distribution/strategic-partners',
+            imgUrl: '#',
+            imgAlt: ''
+        },
+        {
+            link: '/distribution/strategic-partners',
+            imgUrl: '#',
+            imgAlt: ''
+        },
+        {
+            link: '/distribution/strategic-partners',
+            imgUrl: '#',
+            imgAlt: ''
+        },
+        {
+            link: '/distribution/strategic-partners',
+            imgUrl: '#',
+            imgAlt: ''
+        },
+        {
+            link: '/distribution/strategic-partners',
+            imgUrl: '#',
+            imgAlt: ''
+        }        
+    ]
 }
 
 const homeSlice = createSlice({
