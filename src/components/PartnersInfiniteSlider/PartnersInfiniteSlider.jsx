@@ -13,7 +13,7 @@ const PartnersInfiniteSlider = () => {
         slidesToShow: 10,
         slidesToScroll: 29,
         autoplay: true,
-        speed: 60000,
+        speed: 29 * 5000,
         autoplaySpeed: 0,
         arrows: false,
         cssEase: 'linear'        

@@ -10,12 +10,12 @@ export const HOME_TILES_TYPES = {
 
 export const pagesTransition = {
     initial: { 
-        opacity: 0
+        opacity: 0,
     },
     animate: { 
-        opacity: 1
+        opacity: 1,
      },
     exit: { 
-        opacity: 0 
+        opacity: 0,
     },
 }
