@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { motion } from 'framer-motion/dist/framer-motion'
 import { pagesTransition } from '../../../constants/constants'
 import PDFViewer from '../../../components/PDFViewer/PDFViewer'
@@ -11,17 +11,38 @@ import {
 } from '@mui/material'
 
 
-const documentsList = () => {
-
-    const obj = {
-        personalData: {
-            name: 'Обработка персональных данных',
-
-        }
+const arr = [
+    {
+        name: 'Обработка персональных данных',
+        documents: [
+            {
+                name: 'Персональные данные',
+                link: 'sample.pdf',
+                request: 'type=personal-info'
+            }
+        ]
+    },
+    {
+        name: 'Нормативные документы',
+        documents: [
+            {
+                name: 'Нормативные документы',
+                link: 'test.pdf',
+                request: 'type=regulations'
+            }
+        ]
+    },
+    {
+        name: 'Рабочие документы',
+        documents: [
+            {
+                name: 'Рабочие документы',
+                link: 'testPDF.pdf',
+                request: 'type=work-documents'
+            }
+        ]
     }
-
-
-}
+]
 
 const Documents = () => {
     return (
@@ -29,45 +50,39 @@ const Documents = () => {
             { ...pagesTransition }
         >
             <h2>Документы</h2>
-            <List>
-                <ListItemButton>
-                    <ListItemIcon>
-                    </ListItemIcon>
-                    <ListItemText primary = 'Обработка персональных данных' />
-                </ListItemButton>
-                <Collapse
-                    in = { true }
-                    timeout = 'auto'
-                    unmountOnExit
-                >
-                    <List component = 'div' disablePadding>
-                        <ListItemButton sx = {{ pl: 4 }}>
-                            <ListItemIcon>
-                            </ListItemIcon>
-                            <ListItemText primary = '1' />
-                        </ListItemButton>
-                        <ListItemButton sx = {{ pl: 4 }}>
-                            <ListItemIcon>
-                            </ListItemIcon>
-                            <ListItemText primary = '2' />
-                        </ListItemButton>
-                        <ListItemButton sx = {{ pl: 4 }}>
-                            <ListItemIcon>
-                            </ListItemIcon>
-                            <ListItemText primary = '3' />
-                        </ListItemButton>
-                    </List>
-                </Collapse>
-                <ListItemButton>
-                    <ListItemIcon>
-                    </ListItemIcon>
-                    <ListItemText primary = 'Нормативные документы' />
-                </ListItemButton>
-                <ListItemButton>
-                    <ListItemIcon>
-                    </ListItemIcon>
-                    <ListItemText primary = 'Рабочие документы' />
-                </ListItemButton>
+            <List component = 'nav'>
+                {
+                    arr.map(
+                        elem => (
+                            <Fragment key = { elem.name }>
+                                <ListItemButton >
+                                    <ListItemIcon>
+                                    </ListItemIcon>
+                                    <ListItemText primary = { elem.name } />
+                                </ListItemButton>
+                                <Collapse
+                                    in = { true }
+                                    timeout = 'auto'
+                                    unmountOnExit
+                                >
+                                    <List component = 'div' disablePadding>
+                                        {
+                                            elem.documents.map(
+                                                elem => (
+                                                    <ListItemButton key = { elem.link } sx = {{ pl: 4 }}>
+                                                        <ListItemIcon>
+                                                        </ListItemIcon>
+                                                        <ListItemText primary = { elem.name } />
+                                                    </ListItemButton>
+                                                )
+                                            )
+                                        }
+                                    </List>
+                                </Collapse>
+                            </Fragment>
+                        )
+                    )
+                }
             </List>
             <PDFViewer />
         </motion.section>
