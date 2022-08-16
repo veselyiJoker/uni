@@ -1,43 +1,40 @@
 import React, { useState } from 'react'
-import { Document, Page } from 'react-pdf/dist/esm/entry.webpack'
-import { StyledPDFViewer } from './styles'
+import { A4_SIZE_IN_PIXELS, PDF_SCALE_SIZE } from '../../constants/constants'
+import { 
+    StyledPDFViewer,
+    StyledDocument,
+    StyledPage
+} from './styles'
+
 
 const PDFViewer = () => {
-    const [numPages, setNumPages] = useState(null)
-    const [pageNumber, setPageNumber] = useState(1)
+    const [numPages, setNumPages] = useState(null);
 
     const onDocumentLoadSuccess = ({ numPages }) => {
-        setNumPages(numPages)
-    }
-
-    const handlerNextPageButtonClick = () => {
-        if (pageNumber < numPages) {
-            setPageNumber(pageNumber + 1)
-        }
+      setNumPages(numPages)
     }
     
     return (
         <StyledPDFViewer>
-            <button onClick = { handlerNextPageButtonClick }>Next</button>
-
-            <button>
-                Обработка персональных данных
-            </button>
-            <button>
-                Нормативные документы
-            </button>
-            <button>
-                Рабочие документы
-            </button>
-            <Document file = '/test.pdf' onLoadSuccess = { onDocumentLoadSuccess }>
-                <Page height = { 1754 * 0.75 }  pageNumber = { pageNumber } />
-            </Document>
-            <p>
-                Page { pageNumber } of { numPages }
-            </p>
-            
+            <StyledDocument
+                file = '/sample.pdf'
+                onLoadSuccess = { onDocumentLoadSuccess }
+            >
+                {
+                    Array.from(
+                        new Array(numPages),
+                        (elem, i) => (
+                            <StyledPage 
+                                key = { `page${ i + 1 }` }
+                                pageNumber = { i + 1 }
+                                width = { A4_SIZE_IN_PIXELS.width * PDF_SCALE_SIZE }
+                            />
+                        )
+                    )
+                }
+            </StyledDocument>
         </StyledPDFViewer>
-    );
+    )
 }
 
 export default PDFViewer

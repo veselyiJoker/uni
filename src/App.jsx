@@ -62,6 +62,7 @@ const App = () => {
                             <Route path='events' element={ <Events /> } />
                             <Route path='vacancies' element={ <Vacancies /> } />
                             <Route path='contacts' element={ <Contacts /> } />
+                            <Route path='contacts' element={ <Contacts /> } />
                             <Route path='documents' element={ <Documents /> } />
                         </Route>
                         <Route path='distribution' element={ <DistributionLayout /> }>
