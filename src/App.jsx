@@ -47,7 +47,7 @@ const App = () => {
     return (
         <I18nProvider locale={ SelectedLocalization }>
             <Header />
-            <AnimatePresence exitBeforeEnter>
+            <AnimatePresence mode='wait'>
                 <Routes location={ location } key={ location.pathname }>
                     <Route path='/' element={ <Layout /> }>
                         <Route index element={ <Home /> } />

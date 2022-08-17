@@ -7,17 +7,18 @@ import {
 } from './styles'
 
 
-const PDFViewer = () => {
-    const [numPages, setNumPages] = useState(null);
+const PDFViewer = props => {
+    const [numPages, setNumPages] = useState(1);
 
     const onDocumentLoadSuccess = ({ numPages }) => {
-      setNumPages(numPages)
+        console.log(numPages);
+        setNumPages(numPages)
     }
     
     return (
         <StyledPDFViewer>
             <StyledDocument
-                file = '/sample.pdf'
+                file = { props.link }
                 onLoadSuccess = { onDocumentLoadSuccess }
             >
                 {

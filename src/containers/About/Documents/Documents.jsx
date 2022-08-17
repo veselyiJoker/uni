@@ -9,42 +9,53 @@ import {
     ListItemIcon,
     ListItemText
 } from '@mui/material'
+import { useDispatch, useSelector } from 'react-redux'
+import { changeActiveDocument } from '../../../slices/documentsSlice'
 
 
-const arr = [
-    {
+const obj = {
+    personalData: {
         name: 'Обработка персональных данных',
-        documents: [
-            {
+        documents: {
+            personalData: {
                 name: 'Персональные данные',
-                link: 'sample.pdf',
+                link: '/sample.pdf',
                 request: 'type=personal-info'
             }
-        ]
+        }
     },
-    {
+    regulations: {
         name: 'Нормативные документы',
-        documents: [
-            {
+        documents: {
+            regulations: {
                 name: 'Нормативные документы',
-                link: 'test.pdf',
+                link: '/test.pdf',
                 request: 'type=regulations'
             }
-        ]
+        }
     },
-    {
+    workDocuments: {
         name: 'Рабочие документы',
-        documents: [
-            {
+        documents: {
+            workDocuments: {
                 name: 'Рабочие документы',
-                link: 'testPDF.pdf',
+                link: '/testPDF.pdf',
                 request: 'type=work-documents'
             }
-        ]
+        }
     }
-]
+}
 
 const Documents = () => {
+
+    const dispatch = useDispatch()
+    
+    const document = useSelector(state => state.documents.activeDocument )
+
+    const handlerListItemButton = ({ currentTarget: { dataset: { link } } }) => {
+        dispatch( changeActiveDocument(link) )
+    }
+
     return (
         <motion.section 
             { ...pagesTransition }
@@ -52,7 +63,7 @@ const Documents = () => {
             <h2>Документы</h2>
             <List component = 'nav'>
                 {
-                    arr.map(
+                    Object.values(obj).map(
                         elem => (
                             <Fragment key = { elem.name }>
                                 <ListItemButton >
@@ -67,9 +78,14 @@ const Documents = () => {
                                 >
                                     <List component = 'div' disablePadding>
                                         {
-                                            elem.documents.map(
+                                            Object.values(elem.documents).map(
                                                 elem => (
-                                                    <ListItemButton key = { elem.link } sx = {{ pl: 4 }}>
+                                                    <ListItemButton
+                                                        key = { elem.link }
+                                                        sx = {{ pl: 4 }}
+                                                        data-link = { elem.link }
+                                                        onClick = { handlerListItemButton } 
+                                                    >
                                                         <ListItemIcon>
                                                         </ListItemIcon>
                                                         <ListItemText primary = { elem.name } />
@@ -84,7 +100,7 @@ const Documents = () => {
                     )
                 }
             </List>
-            <PDFViewer />
+            <PDFViewer link = { document } />
         </motion.section>
     )
 }

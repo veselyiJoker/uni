@@ -150,12 +150,11 @@ const initialState = {
     ]
 }
 
-const homeSlice = createSlice({
+const homeSlice = createSlice ({
     name: 'home',
     initialState,
     reducers: {
-        changeOpenedPopupType(state, action) {
-            console.log(action.payload);
+        changeOpenedPopupType (state, action) {
             state.openedPopup = action.payload
         }
     }
