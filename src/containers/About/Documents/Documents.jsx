@@ -13,47 +13,15 @@ import { useDispatch, useSelector } from 'react-redux'
 import { changeActiveDocument } from '../../../slices/documentsSlice'
 
 
-const obj = {
-    personalData: {
-        name: 'Обработка персональных данных',
-        documents: {
-            personalData: {
-                name: 'Персональные данные',
-                link: '/sample.pdf',
-                request: 'type=personal-info'
-            }
-        }
-    },
-    regulations: {
-        name: 'Нормативные документы',
-        documents: {
-            regulations: {
-                name: 'Нормативные документы',
-                link: '/test.pdf',
-                request: 'type=regulations'
-            }
-        }
-    },
-    workDocuments: {
-        name: 'Рабочие документы',
-        documents: {
-            workDocuments: {
-                name: 'Рабочие документы',
-                link: '/testPDF.pdf',
-                request: 'type=work-documents'
-            }
-        }
-    }
-}
-
 const Documents = () => {
 
     const dispatch = useDispatch()
-    
-    const document = useSelector(state => state.documents.activeDocument )
+
+    const data = useSelector( state => state.documents.data )
+    const document = useSelector( state => state.documents.activeDocument )
 
     const handlerListItemButton = ({ currentTarget: { dataset: { link } } }) => {
-        dispatch( changeActiveDocument(link) )
+        dispatch( changeActiveDocument( link ) )
     }
 
     return (
@@ -63,10 +31,10 @@ const Documents = () => {
             <h2>Документы</h2>
             <List component = 'nav'>
                 {
-                    Object.values(obj).map(
+                    Object.values(data).map(
                         elem => (
                             <Fragment key = { elem.name }>
-                                <ListItemButton >
+                                <ListItemButton>
                                     <ListItemIcon>
                                     </ListItemIcon>
                                     <ListItemText primary = { elem.name } />
