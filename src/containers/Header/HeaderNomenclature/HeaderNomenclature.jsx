@@ -26,6 +26,18 @@ export const HeaderNomenclature = () => {
             </FeaturedContainer>
             <List>
                 <li>
+                    <NomenclatureLink to='/nomenclature/atc-classification'>
+                    { translate(`${ i18nGroup }ATCClassification`) }
+                    </NomenclatureLink>
+                </li>
+                <li>
+                    <NomenclatureLink to='/nomenclature/domestic-manufacturers-products'>
+                        { translate(`${ i18nGroup }domesticManufacturersProducts`) }                        
+                    </NomenclatureLink>
+                </li>
+            </List>
+            <List>
+                <li>
                     { translate(`${ i18nGroup }productCatalog`) }
                     <SubList>
                         <li>
@@ -49,18 +61,6 @@ export const HeaderNomenclature = () => {
                             </NomenclatureLink>
                         </li>
                     </SubList>
-                </li>
-            </List>
-            <List>
-                <li>
-                    <NomenclatureLink to='/nomenclature/atc-classification'>
-                        { translate(`${ i18nGroup }ATCClassification`) }
-                    </NomenclatureLink>
-                </li>
-                <li>
-                    <NomenclatureLink to='/nomenclature/domestic-manufacturers-products'>
-                        { translate(`${ i18nGroup }domesticManufacturersProducts`) }                        
-                    </NomenclatureLink>
                 </li>
             </List>
         </StyledHeaderNomenclature>

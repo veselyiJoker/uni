@@ -4,11 +4,11 @@ import { pagesTransition } from '../../../constants/constants'
 
 const ATCClassification = () => {
     return (
-        <motion.section 
+        <motion.div
             { ...pagesTransition }
         >
             <h2>АТХ классификация</h2>
-        </motion.section>
+        </motion.div>
     )
 }
 

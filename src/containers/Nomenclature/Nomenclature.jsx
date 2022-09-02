@@ -4,11 +4,11 @@ import { pagesTransition } from '../../constants/constants'
 
 const Nomenclature = () => {
     return (
-        <motion.section 
+        <motion.div
             { ...pagesTransition }
         >
             <h2>Каталог продукции</h2>
-        </motion.section>
+        </motion.div>
     )
 }
 

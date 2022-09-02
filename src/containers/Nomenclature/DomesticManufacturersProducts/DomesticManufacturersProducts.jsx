@@ -4,11 +4,11 @@ import { pagesTransition } from '../../../constants/constants'
 
 const DomesticManufacturersProducts = () => {
     return (
-        <motion.section 
+        <motion.div
             { ...pagesTransition }
         >
             <h2>Продукция отечественных производителей</h2>
-        </motion.section>
+        </motion.div>
     )
 }
 

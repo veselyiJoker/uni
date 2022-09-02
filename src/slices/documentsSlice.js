@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-    data: [
-        {
+    data: {
+        personalData: {
             name: 'Обработка персональных данных',
             documents: {
                 personalData: {
@@ -10,9 +10,34 @@ const initialState = {
                     link: '/sample.pdf',
                     request: 'type=personal-info'
                 }
+            },
+            includes: {
+                workDocuments: {
+                    name: 'Рабочие документы',
+                    documents: {
+                        workDocuments: {
+                            name: 'Рабочие документы',
+                            link: '/testPDF.pdf',
+                            request: 'type=work-documents'
+                        }
+                    },
+                    includes: {
+                        regulations: {
+                            name: 'Нормативные документы',
+                            documents: {
+                                regulations: {
+                                    name: 'Нормативные документы',
+                                    link: '/test.pdf',
+                                    request: 'type=regulations'
+                                }
+                            },
+                            includes: {}
+                        },
+                    }
+                } 
             }
         },
-        {
+        regulations: {
             name: 'Нормативные документы',
             documents: {
                 regulations: {
@@ -20,9 +45,9 @@ const initialState = {
                     link: '/test.pdf',
                     request: 'type=regulations'
                 }
-            }
+            },
         },
-        {
+        workDocuments: {
             name: 'Рабочие документы',
             documents: {
                 workDocuments: {
@@ -30,9 +55,9 @@ const initialState = {
                     link: '/testPDF.pdf',
                     request: 'type=work-documents'
                 }
-            }
+            },
         }
-    ],
+    },
     loadedFilesLinks: {},
     activeDocument: ''
 }
