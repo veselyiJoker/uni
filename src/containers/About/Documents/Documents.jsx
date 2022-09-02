@@ -11,6 +11,10 @@ import {
 } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
 import { changeActiveDocument } from '../../../slices/documentsSlice'
+import {
+    DocumentsContainer,
+    DocumentsList
+} from './styles'
 
 
 const Documents = () => {
@@ -18,7 +22,7 @@ const Documents = () => {
     const dispatch = useDispatch()
 
     const data = useSelector( state => state.documents.data )
-    const document = useSelector( state => state.documents.activeDocument )
+    const documentLink = useSelector( state => state.documents.activeDocument )
 
     const handlerListItemButton = ({ currentTarget: { dataset: { link } } }) => {
         dispatch( changeActiveDocument( link ) )
@@ -29,46 +33,48 @@ const Documents = () => {
             { ...pagesTransition }
         >
             <h2>Документы</h2>
-            <List component = 'nav'>
-                {
-                    Object.values(data).map(
-                        elem => (
-                            <Fragment key = { elem.name }>
-                                <ListItemButton>
-                                    <ListItemIcon>
-                                    </ListItemIcon>
-                                    <ListItemText primary = { elem.name } />
-                                </ListItemButton>
-                                <Collapse
-                                    in = { true }
-                                    timeout = 'auto'
-                                    unmountOnExit
-                                >
-                                    <List component = 'div' disablePadding>
-                                        {
-                                            Object.values(elem.documents).map(
-                                                elem => (
-                                                    <ListItemButton
-                                                        key = { elem.link }
-                                                        sx = {{ pl: 4 }}
-                                                        data-link = { elem.link }
-                                                        onClick = { handlerListItemButton } 
-                                                    >
-                                                        <ListItemIcon>
-                                                        </ListItemIcon>
-                                                        <ListItemText primary = { elem.name } />
-                                                    </ListItemButton>
+            <DocumentsContainer>
+                <DocumentsList component = 'nav'>
+                    {
+                        Object.values(data).map(
+                            elem => (
+                                <Fragment key = { elem.name }>
+                                    <ListItemButton>
+                                        <ListItemIcon>
+                                        </ListItemIcon>
+                                        <ListItemText primary = { elem.name } />
+                                    </ListItemButton>
+                                    <Collapse
+                                        in = { true }
+                                        timeout = 'auto'
+                                        unmountOnExit
+                                    >
+                                        <List component = 'div' disablePadding>
+                                            {
+                                                Object.values(elem.documents).map(
+                                                    elem => (
+                                                        <ListItemButton
+                                                            key = { elem.link }
+                                                            sx = {{ pl: 4 }}
+                                                            data-link = { elem.link }
+                                                            onClick = { handlerListItemButton } 
+                                                        >
+                                                            <ListItemIcon>
+                                                            </ListItemIcon>
+                                                            <ListItemText primary = { elem.name } />
+                                                        </ListItemButton>
+                                                    )
                                                 )
-                                            )
-                                        }
-                                    </List>
-                                </Collapse>
-                            </Fragment>
+                                            }
+                                        </List>
+                                    </Collapse>
+                                </Fragment>
+                            )
                         )
-                    )
-                }
-            </List>
-            <PDFViewer link = { document } />
+                    }
+                </DocumentsList>
+                <PDFViewer link = { documentLink } />
+            </DocumentsContainer>
         </motion.section>
     )
 }

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useEffect } from 'react';
 import { A4_SIZE_IN_PIXELS, PDF_SCALE_SIZE } from '../../constants/constants'
 import { 
     StyledPDFViewer,
@@ -8,11 +9,15 @@ import {
 
 
 const PDFViewer = props => {
-    const [numPages, setNumPages] = useState(1);
+    const [numPages, setNumPages] = useState(null);
 
     const onDocumentLoadSuccess = ({ numPages }) => {
         setNumPages(numPages)
     }
+
+    useEffect(() => {
+        setNumPages(null)
+    }, [ props.link ])
     
     return (
         <StyledPDFViewer>
@@ -21,12 +26,11 @@ const PDFViewer = props => {
                 onLoadSuccess = { onDocumentLoadSuccess }
             >
                 {
-                    Array.from(
-                        new Array(numPages),
-                        (elem, i) => (
+                    [...Array(numPages).keys()].map(
+                        elem => (
                             <StyledPage 
-                                key = { `page${ i + 1 }` }
-                                pageNumber = { i + 1 }
+                                key = { `page${ elem + 1 }` }
+                                pageNumber = { elem + 1 }
                                 width = { A4_SIZE_IN_PIXELS.width * PDF_SCALE_SIZE }
                             />
                         )

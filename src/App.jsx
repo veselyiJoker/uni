@@ -4,7 +4,6 @@ import {
     Route,
     useLocation,
 } from 'react-router-dom'
-import { useSelector } from 'react-redux'
 import Header from './containers/Header/Header'
 import Home from './containers/Home/Home'
 import About from './containers/About/About'
@@ -29,6 +28,7 @@ import RetailChain from './containers/RetailChain/RetailChain'
 import ForByers from './containers/ForBuyers/ForByers'
 import ForSupplires from './containers/ForSuppliers/ForSuppliers'
 import NotFound from './containers/NotFound/NotFound'
+import { useSelector } from 'react-redux'
 import { Layout } from './routes/Layout/Layout'
 import { AboutLayout } from './routes/AboutLayout/AboutLayout'
 import { DistributionLayout } from './routes/DistributionLayout/DistributionLayout'
@@ -47,7 +47,7 @@ const App = () => {
     return (
         <I18nProvider locale={ SelectedLocalization }>
             <Header />
-            <AnimatePresence mode='wait'>
+            <AnimatePresence exitBeforeEnter>
                 <Routes location={ location } key={ location.pathname }>
                     <Route path='/' element={ <Layout /> }>
                         <Route index element={ <Home /> } />
