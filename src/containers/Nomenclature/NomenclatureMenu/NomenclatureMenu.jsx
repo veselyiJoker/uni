@@ -1,4 +1,5 @@
 import React from 'react'
+import { motion } from 'framer-motion/dist/framer-motion'
 import { Link } from 'react-router-dom'
 import { 
     NomenclatureList,
@@ -9,8 +10,10 @@ import {
 
 
 const NomenclatureMenu = () => {
+
+
     return (
-        <header>
+        <motion.header>
             <NomenclatureList>
                 <NomenclatureListItem component='li'>
                     <Link to='/nomenclature/atc-classification'>
@@ -54,7 +57,7 @@ const NomenclatureMenu = () => {
                     </NomenclatureSubList>
                 </CollapseContainer>
             </NomenclatureList>
-        </header>
+        </motion.header>
     )
 }
 

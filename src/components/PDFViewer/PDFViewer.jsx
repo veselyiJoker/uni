@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { useEffect } from 'react';
-import { A4_SIZE_IN_PIXELS, PDF_SCALE_SIZE } from '../../constants/constants'
+import { useEffect } from 'react'
+import { A4_SIZE_IN_PIXELS, PDF_SCALE_SIZE } from '../../constants/constants';
 import { 
     StyledPDFViewer,
     StyledDocument,

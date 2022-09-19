@@ -1,12 +1,9 @@
-import React, { useState } from 'react'
-import {
-    NavLink
-} from 'react-router-dom'
-import { URL } from '../../constants/constants'
+import React, { useEffect, useState } from 'react'
+import { foundFirstDocumentInCatalog, URL } from '../../constants/constants'
 import { Localization } from '../../components/Localization/Localization'
-import { HeaderAbout } from './HeaderAbout/HeaderAbout'
-import { HeaderDistribution } from './HeaderDistribution/HeaderDistribution'
-import { HeaderNomenclature } from './HeaderNomenclature/HeaderNomenclature'
+import { SubMenuAbout } from './SubMenuAbout/SubMenuAbout'  
+import { SubMenuDistribution } from './SubMenuDistribution/SubMenuDistribution'
+import { SubMenuNomenclature } from './SubMenuNomenclature/SubMenuNomenclature'
 import { Breadcrumbs } from '../../components/Breadcrumbs/Breadcrumbs'
 import {
     StyledHeader,
@@ -15,105 +12,140 @@ import {
     Nav,
     NavList,
     NavItem,
+    NavItemLink,
 } from './styles'
 
 import { translate } from '../../i18n/messages/translate'
+import { useSelector } from 'react-redux'
+
 
 const Header = () => {
-    
     const i18nGroup = 'header.'
 
+    const documentsData = useSelector( state => state.documents.data )
+
     const [ openedMenuHref, setOpenedMenuHref ] = useState('')
+    const [ documentsListData, setDocumentsListData ] = useState([])
 
-    const openNavItemMenu = () => {
+    const handlerOpenSubMenu = ({ target: { href } }) => {
+        setOpenedMenuHref( href )
+    }
 
-        switch (openedMenuHref) {      
-            case `${ URL }/about`:
-                return <HeaderAbout />
+    const handlerHeaderMouseLeave = () => {
+        setOpenedMenuHref('')
+    }
 
-            case `${ URL }/distribution`:
-                return <HeaderDistribution />
+    useEffect(
+        () => {
+            const documentsDataKeys = Object.keys( documentsData )
+            const processedDocumentsListData = []
+            
+            for (let i = 0; i < documentsDataKeys.length; i++) {
+                const firstDocumentInCatalog = foundFirstDocumentInCatalog( documentsData[documentsDataKeys[i]] )
+                
+                if ( firstDocumentInCatalog ) {
+                    const documentsListDataItem = {
+                        name: documentsData[documentsDataKeys[i]].name,
+                        link: firstDocumentInCatalog.request
+                    }
+    
+                    processedDocumentsListData.push( documentsListDataItem )
+                }
+            }
 
-            case `${ URL }/nomenclature`:
-                return <HeaderNomenclature />
-            default:
-                break
+            setDocumentsListData( processedDocumentsListData )
         }
-
-    }
-
-    const handlerNavItemMouseOver = ({ target: { href } }) => {
-        setOpenedMenuHref(href)
-    }
-
-    const handlerHeaderPopupMouseLeave = () => {
-        setOpenedMenuHref('') 
-    }
+        ,[documentsData]
+    )
 
     return (
         <StyledHeader>
             <Container>
-                <NavContainer onMouseLeave = { handlerHeaderPopupMouseLeave }>
+                <NavContainer onMouseLeave = { handlerHeaderMouseLeave }>
                     <Nav>
                         <NavList>
-                            <NavItem>              
-                                <NavLink
+                            <NavItem>
+                                <NavItemLink
                                     to = '/about'
-                                    onMouseOver = { handlerNavItemMouseOver }
+                                    onMouseOver = { handlerOpenSubMenu }
+                                    onFocus = { handlerOpenSubMenu }
                                 >
                                     { translate(`${ i18nGroup }about`) }
-                                </NavLink>
+                                </NavItemLink>
+                                {
+                                    openedMenuHref === `${ URL }/about` && (
+                                        <SubMenuAbout
+                                            documentsListData = { documentsListData }
+                                        />
+                                    )
+                                }
                             </NavItem>
                             <NavItem>
-                                <NavLink
+                                <NavItemLink
                                     to = '/distribution'
-                                    onMouseOver = { handlerNavItemMouseOver }
+                                    onMouseOver = { handlerOpenSubMenu }
+                                    onFocus = { handlerOpenSubMenu }
                                 >
                                     { translate(`${ i18nGroup }distribution`) }
-                                </NavLink>
+                                </NavItemLink>
+                                {
+                                    openedMenuHref === `${ URL }/distribution` && (
+                                        <SubMenuDistribution /> 
+                                    )
+                                }
                             </NavItem>
                             <NavItem>
-                                <NavLink
+                                <NavItemLink
                                     to = '/nomenclature'
-                                    onMouseOver = { handlerNavItemMouseOver }
+                                    onMouseOver = { handlerOpenSubMenu }
+                                    onFocus = { handlerOpenSubMenu }
                                 >
                                     { translate(`${ i18nGroup }nomenclature`) }
-                                </NavLink>
+                                </NavItemLink>
+                                {
+                                    openedMenuHref === `${ URL }/nomenclature` && (
+                                        <SubMenuNomenclature />
+                                    )
+                                }
                             </NavItem>
                             <NavItem>
-                                <NavLink
+                                <NavItemLink
                                     to = '/'
-                                    onMouseOver = { handlerNavItemMouseOver }
+                                    onMouseOver = { handlerOpenSubMenu }
+                                    onFocus = { handlerOpenSubMenu }
                                 >
                                     { translate(`${ i18nGroup }unifarm`) }
-                                </NavLink>
+                                </NavItemLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink to = '/retail-chain'>
+                                <NavItemLink
+                                    to = '/retail-chain'
+                                    onMouseOver = { handlerOpenSubMenu }
+                                    onFocus = { handlerOpenSubMenu }
+                                >
                                     { translate(`${ i18nGroup }retailChain`) }
-                                </NavLink>
+                                </NavItemLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink
+                                <NavItemLink
                                     to = '/for-byers'
-                                    onMouseOver = { handlerNavItemMouseOver }
+                                    onMouseOver = { handlerOpenSubMenu }
+                                    onFocus = { handlerOpenSubMenu }
                                 >
                                     { translate(`${ i18nGroup }forBuyers`) }
-                                </NavLink>
+                                </NavItemLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink
+                                <NavItemLink
                                     to = '/for-suppliers'
-                                    onMouseOver = { handlerNavItemMouseOver }
+                                    onMouseOver = { handlerOpenSubMenu }
+                                    onFocus = { handlerOpenSubMenu }
                                 >
                                     { translate(`${ i18nGroup }forSuppliers`) }
-                                </NavLink>
+                                </NavItemLink>
                             </NavItem>
                         </NavList>
                     </Nav>
-                    {
-                        openNavItemMenu()
-                    }
                 </NavContainer>
                 <Localization />
                 <Breadcrumbs />

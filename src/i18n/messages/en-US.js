@@ -10,7 +10,7 @@ export default {
             retailChain: 'Retail chain',
             forBuyers: 'For buyers',
             forSuppliers: 'For suppliers',
-            dropdownAbout: {
+            subMenuAbout: {
                 featured: 'General information',
                 featuredSubtitle: 'We occupy one of the leading positions in the pharmaceutical industry',
                 structure: 'Structure',
@@ -27,7 +27,7 @@ export default {
                 vacancies: 'Vacancies',
                 contacts: 'Contacts',
             },
-            dropdownDistribution: {
+            subMenuDistribution: {
                 featured: 'Exclusive distribution',
                 featuredSubtitle: 'We work with more than 100 global manufacturers',
                 strategicPartners: 'Strategic partners',
@@ -41,7 +41,7 @@ export default {
                     biologicallyActiveAdditives: 'Biologically active additives',
                 }
             },
-            dropdownNomenclature: {
+            subMenuNomenclature: {
                 featured: 'Product Catalog',
                 featuredSubtitle: 'We represent over 1000 products',
                 productCatalog: 'Product catalog',

@@ -1,88 +1,116 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useEffect } from 'react'
 import { motion } from 'framer-motion/dist/framer-motion'
-import { pagesTransition } from '../../../constants/constants'
+import { foundFirstDocumentInCatalog, pagesTransition } from '../../../constants/constants'
 import PDFViewer from '../../../components/PDFViewer/PDFViewer'
 import {
     List,
     Collapse,
-    ListItemButton,
-    ListItemIcon,
-    ListItemText
 } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
-import { changeActiveDocument } from '../../../slices/documentsSlice'
+import { changeDocument } from '../../../slices/documentsSlice'
 import {
     DocumentsContainer,
-    DocumentsList
+    DocumentsList,
+    DocumentSelectButton,
+    DocumentSelectButtonText,
+    DocumentSelectButtonLink
 } from './styles'
+import { useLocation } from 'react-router'
 
 
 const Documents = () => {
 
+    const location = useLocation()
     const dispatch = useDispatch()
 
-    const data = useSelector( state => state.documents.data )
-    const documentLink = useSelector( state => state.documents.activeDocument )
-
+    const documentsData = useSelector( state => state.documents.data )
+    const documentLink = useSelector( state => state.documents.activeDocumentLink )
+    
     const parseIncludes = includes => {
-        return Object.values(includes).map(
-            elem => {                 
-                return (
-                    <Fragment key = { elem.name }>
-                        <ListItemButton>
-                            <ListItemIcon>
-                            </ListItemIcon>
-                            <ListItemText primary = { elem.name } />
-                        </ListItemButton>
-                        <Collapse
-                            in = { true }
-                            timeout = 'auto'
-                            unmountOnExit
-                        >
-                            <List component = 'div' disablePadding>
-                                {
-                                    Object.values(elem.documents).map(
-                                        elem => (
-                                            <ListItemButton
-                                                key = { elem.link }
-                                                component='li'
-                                                sx = {{ pl: 4 }}
-                                                data-link = { elem.link }
-                                                onClick = { handlerListItemButton } 
-                                            >
-                                                <ListItemIcon>
-                                                </ListItemIcon>
-                                                <ListItemText primary = { elem.name } />
-                                            </ListItemButton>
+        const parsedIncludes = []
+
+        for (let i = 0; i < Object.values( includes ).length; i++) {
+            const catalog = Object.values( includes )[i]
+    
+            if ( catalog ) {
+                const someoneDocument = foundFirstDocumentInCatalog( catalog )
+
+                if ( someoneDocument ) {
+                    parsedIncludes.push(
+                        <Fragment key = { catalog.name + i }>
+                            <DocumentSelectButton component = 'li'>
+                                <DocumentSelectButtonText>
+                                    {
+                                        catalog.name
+                                    }
+                                </DocumentSelectButtonText>
+                            </DocumentSelectButton>
+                            <Collapse
+                                component = 'li'
+                                sx = {{ pl: 4 }}
+                                in = { true }
+                                timeout = 'auto'
+                                unmountOnExit
+                            >
+                                <List component = 'ul' disablePadding>
+                                    {
+                                        Object.values( catalog.documents ).map(
+                                            elem => (
+                                                <DocumentSelectButton
+                                                    key = { elem.request }
+                                                    component = 'li'
+                                                >
+                                                    <DocumentSelectButtonLink to = { location.pathname + `?${ elem.request }` }>
+                                                        {
+                                                            elem.name
+                                                        }
+                                                    </DocumentSelectButtonLink>
+                                                </DocumentSelectButton>
+                                            )
                                         )
-                                    )
-                                }
-                                {
-                                   !!elem.includes
-                                   && !!Object.keys(elem.includes).length
-                                   && parseIncludes(elem.includes)
-                                }
-                            </List>
-                        </Collapse>
-                    </Fragment>
-                )
+                                    }
+                                    {
+                                        !!catalog.includes
+                                        && !!Object.keys( catalog.includes ).length
+                                        && parseIncludes( catalog.includes )
+                                    }
+                                </List>
+                            </Collapse>
+                        </Fragment>
+                    )
+                }
             }
+        }
+
+        return (
+            <Fragment>
+                {
+                    parsedIncludes.map(
+                        elem => elem
+                    )
+                }
+            </Fragment>
         )
     }
 
-    const handlerListItemButton = ({ currentTarget: { dataset: { link } } }) => {
-        dispatch( changeActiveDocument( link ) )
-    }
+    useEffect(
+        () => {
+            if ( location.pathname === '/about/documents' ) {
+                dispatch( changeDocument( location.search ) )
+            }
+        }
+        ,[ location.search ]
+    )
 
     return (
-        <motion.section 
+        <motion.section
             { ...pagesTransition }
         >
             <h2>Документы</h2>
             <DocumentsContainer>
-                <DocumentsList component = 'div'>
+                <DocumentsList component = 'ul'>
                     {
-                       parseIncludes(data)
+                       parseIncludes( documentsData )
                     }
                 </DocumentsList>
                 <PDFViewer link = { documentLink } />

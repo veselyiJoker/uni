@@ -7,9 +7,9 @@ export const StyledPDFViewer = styled.div`
 `
 
 export const StyledDocument = styled(Document)`
+    overflow-y: auto;
     width: ${ A4_SIZE_IN_PIXELS.width * PDF_SCALE_SIZE + 18 }px;
     height: ${ A4_SIZE_IN_PIXELS.height * PDF_SCALE_SIZE }px;
-    overflow-y: auto;
 `
 
 export const StyledPage = styled(Page)`

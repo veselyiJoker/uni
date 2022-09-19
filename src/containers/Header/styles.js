@@ -1,4 +1,7 @@
 import styled from 'styled-components'
+import {
+    NavLink
+} from 'react-router-dom'
 
 export const StyledHeader = styled.header`
 
@@ -29,12 +32,13 @@ export const NavList = styled.ul`
 export const NavItem = styled.li`
     min-width: 150px;
     height: 68px;
+`
+
+export const NavItemLink = styled(NavLink)`
+    display: block;
+    text-decoration: none;
+    line-height: 68px;
     text-align: center;
-    a {
-        display: block;
-        line-height: 68px;
-        text-decoration: none;
-    }
 `
 
 export const Breadcrumbs = styled.nav`

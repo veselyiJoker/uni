@@ -25,3 +25,40 @@ export const pagesTransition = {
         opacity: 0,
     },
 }
+
+export const foundFirstDocumentInCatalog = catalog => {
+    const documents = catalog.documents
+
+    if ( documents ) {
+        const firstDocument = documents[Object.keys( documents )[0]]
+        if ( firstDocument ) {
+            return firstDocument
+        }
+    }
+
+    const includes = catalog.includes
+
+    if ( includes ) {
+        for (let i = 0; i < Object.keys( includes ).length; i++) {   
+            const catalog = Object.keys( includes )[i] && (
+                includes[Object.keys( includes )[i]]
+            ) 
+
+            if ( catalog ) {
+                return foundFirstDocumentInCatalog( catalog )
+            }
+            
+        }
+    }
+
+}
+
+export const parseForBeginningDocument = data => {
+    for (let i = 0; i < Object.values( data ).length; i++) {
+        const catalog = Object.values( data )[i]
+
+        if ( catalog ) {
+            return foundFirstDocumentInCatalog( catalog )
+        }
+    }
+}

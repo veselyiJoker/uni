@@ -37,6 +37,8 @@ import {
     I18nProvider,
 } from './i18n'
 import { AnimatePresence } from 'framer-motion/dist/framer-motion'
+import { ThemeProvider } from '@mui/material'
+import { theme } from './themes/index'
 
 
 const App = () => {
@@ -46,43 +48,45 @@ const App = () => {
 
     return (
         <I18nProvider locale={ SelectedLocalization }>
-            <Header />
-            <AnimatePresence exitBeforeEnter>
-                <Routes location={ location } key={ location.pathname }>
-                    <Route path='/' element={ <Layout /> }>
-                        <Route index element={ <Home /> } />
-                        <Route path='about' element={ <AboutLayout /> }>
-                            <Route index element={ <About /> } />
-                            <Route path='structure' element={ <CompanyStructure /> } />
-                            <Route path='partner-companies' element={ <PartnerCompanies />} />
-                            <Route path='licenses' element={ <Licenses /> } />
-                            <Route path='storage-system' element={ <StorageSystem />} />
-                            <Route path='securities-market' element={ <SecuritiesMarket /> } />
-                            <Route path='history' element={ <History /> } />
-                            <Route path='events' element={ <Events /> } />
-                            <Route path='vacancies' element={ <Vacancies /> } />
-                            <Route path='contacts' element={ <Contacts /> } />
-                            <Route path='contacts' element={ <Contacts /> } />
-                            <Route path='documents' element={ <Documents /> } />
+            <ThemeProvider theme={ theme }>
+                <Header />
+                <AnimatePresence exitBeforeEnter>
+                    <Routes location={ location } key={ location.pathname }>
+                        <Route path='/' element={ <Layout /> }>
+                            <Route index element={ <Home /> } />
+                            <Route path='about' element={ <AboutLayout /> }>
+                                <Route index element={ <About /> } />
+                                <Route path='structure' element={ <CompanyStructure /> } />
+                                <Route path='partner-companies' element={ <PartnerCompanies />} />
+                                <Route path='licenses' element={ <Licenses /> } />
+                                <Route path='storage-system' element={ <StorageSystem />} />
+                                <Route path='securities-market' element={ <SecuritiesMarket /> } />
+                                <Route path='history' element={ <History /> } />
+                                <Route path='events' element={ <Events /> } />
+                                <Route path='vacancies' element={ <Vacancies /> } />
+                                <Route path='contacts' element={ <Contacts /> } />
+                                <Route path='contacts' element={ <Contacts /> } />
+                                <Route path='documents' element={ <Documents /> } />
+                            </Route>
+                            <Route path='distribution' element={ <DistributionLayout /> }>
+                                <Route index element={ <Distribution /> } />
+                                <Route path='epic-favre' element={ <EpicFavre /> } />
+                                <Route path='les-3-chenes' element={ <Les3Chenes /> } />
+                                <Route path='strategic-partners' element={ <StrategicPartners /> } />
+                            </Route>
+                            <Route path='nomenclature' element={ <NomenclatureLayout /> }>
+                                <Route index element={ <Nomenclature /> } />
+                                <Route path='atc-classification' element={ <ATCClassification /> } />
+                                <Route path='domestic-manufacturers-products' element={ <DomesticManufacturersProducts /> } />
+                            </Route>
+                            <Route path='retail-chain' element={ <RetailChain /> } />
+                            <Route path='for-byers' element={ <ForByers /> } />
+                            <Route path='for-suppliers' element={ <ForSupplires /> } />
+                            <Route path='*' element={ <NotFound /> } />
                         </Route>
-                        <Route path='distribution' element={ <DistributionLayout /> }>
-                            <Route index element={ <Distribution /> } />
-                            <Route path='epic-favre' element={ <EpicFavre /> } />
-                            <Route path='les-3-chenes' element={ <Les3Chenes /> } />
-                            <Route path='strategic-partners' element={ <StrategicPartners /> } />
-                        </Route>
-                        <Route path='nomenclature' element={ <NomenclatureLayout /> }>
-                            <Route index element={ <Nomenclature /> } />
-                            <Route path='atc-classification' element={ <ATCClassification /> } />
-                            <Route path='domestic-manufacturers-products' element={ <DomesticManufacturersProducts /> } />
-                        </Route>
-                        <Route path='retail-chain' element={ <RetailChain /> } />
-                        <Route path='for-byers' element={ <ForByers /> } />
-                        <Route path='for-suppliers' element={ <ForSupplires /> } />
-                        <Route path='*' element={ <NotFound /> } />
-                    </Route>
-                </Routes>
-            </AnimatePresence>
+                    </Routes>
+                </AnimatePresence>
+            </ThemeProvider>
         </I18nProvider>
     )
 }

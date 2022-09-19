@@ -10,7 +10,7 @@ export default {
             retailChain: 'Розничная сеть',
             forBuyers: 'Покупателям',
             forSuppliers: 'Поставщикам',
-            dropdownAbout: {
+            subMenuAbout: {
                 featured: 'Общая информация',
                 featuredSubtitle: 'Мы занимаем одну из лидирующих позиций в фармацевтической отрасли',
                 structure: 'Структура',
@@ -27,7 +27,7 @@ export default {
                 vacancies: 'Вакансии',
                 contacts: 'Контакты',
             },
-            dropdownDistribution: {
+            subMenuDistribution: {
                 featured: 'Эксклюзивная дистрибуция',
                 featuredSubtitle: 'Работаем более чем с 100 мировыми производителями',
                 strategicPartners: 'Стратегические партнёры',
@@ -41,7 +41,7 @@ export default {
                     biologicallyActiveAdditives: 'Биологически активные добавки',
                 }
             },
-            dropdownNomenclature: {
+            subMenuNomenclature: {
                 featured: 'Каталог продукции',
                 featuredSubtitle: 'Представляем более 1000 наименований', 
                 productCatalog: 'Каталог продукции',

@@ -1,83 +1,97 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { parseForBeginningDocument } from '../constants/constants'
+
 
 const initialState = {
+// При смене языка будет отправлен новый объект data с английскими файлами и name
     data: {
-        personalData: {
+        'personal-info': {
             name: 'Обработка персональных данных',
             documents: {
-                personalData: {
+                'sample.pdf': {
                     name: 'Персональные данные',
-                    link: '/sample.pdf',
-                    request: 'type=personal-info'
-                }
+                    request: 'type=personal-info/sample.pdf'
+                },
             },
             includes: {
-                workDocuments: {
-                    name: 'Рабочие документы',
+                'work-documents': {
+                    name: 'Рабочие документы1',
                     documents: {
                         workDocuments: {
-                            name: 'Рабочие документы',
-                            link: '/testPDF.pdf',
-                            request: 'type=work-documents'
+                            name: 'Рабочие документы1',
+                            request: 'type=personal-info/work-documents/testPDF.pdf'
                         }
                     },
                     includes: {
                         regulations: {
-                            name: 'Нормативные документы',
+                            name: 'Нормативные документы2',
                             documents: {
                                 regulations: {
-                                    name: 'Нормативные документы',
-                                    link: '/test.pdf',
-                                    request: 'type=regulations'
+                                    name: 'Нормативные документы2',
+                                    request: 'type=personal-info/work-documents/regulations/test.pdf'
                                 }
                             },
                             includes: {}
                         },
                     }
-                } 
+                },
             }
         },
-        regulations: {
+        'regulations': {
             name: 'Нормативные документы',
             documents: {
                 regulations: {
                     name: 'Нормативные документы',
-                    link: '/test.pdf',
-                    request: 'type=regulations'
+                    request: 'type=regulations/test.pdf'
                 }
             },
+            includes: {}
         },
-        workDocuments: {
+        'work-documents': {
             name: 'Рабочие документы',
             documents: {
                 workDocuments: {
                     name: 'Рабочие документы',
-                    link: '/testPDF.pdf',
-                    request: 'type=work-documents'
+                    request: 'type=work-documents/testPDF.pdf'
                 }
             },
+            includes: {}
         }
     },
     loadedFilesLinks: {},
-    activeDocument: ''
+    activeDocumentLink: ''
 }
 
 const documentsSlice = createSlice ({
     name: 'documents',
     initialState,
     reducers: {
-        addLoadedFileLink (state, action) {
-            state.loadedFilesLinks[action.payload] = action.payload
-        },
-        changeActiveDocument (state, action) {
-            state.activeDocument = action.payload
+        changeDocument (state, action) {
+            let urlParams = new URLSearchParams(action.payload)
+            let urlParamsType = urlParams.get('type')
+
+            //const urlLinkPath = urlParamsType.match('(.*)\/')[1].split('/')   
+            const urlLink = urlParamsType.match('[^/]*.pdf+?$') && urlParamsType.match('[^/]*.pdf+?$')[0]
+            
+            if ( !urlLink ) {
+                const beginningDocument = parseForBeginningDocument( state.data )
+
+                if ( beginningDocument ) {
+                    urlParams = new URLSearchParams( beginningDocument.request )
+                    urlParamsType = urlParams.get('type')
+    
+                    state.activeDocumentLink = `/assets/${ parseForBeginningDocument( state.data ).request }` 
+                }
+            }
+
+            state.activeDocumentLink = `/assets/${ urlParamsType }`
         }
     }
 })
 
 export const {
     addLoadedDocumentLink,
-    changeActiveDocument
+    changeDocument
 } = documentsSlice.actions
 
 export const documentsReducer = documentsSlice.reducer

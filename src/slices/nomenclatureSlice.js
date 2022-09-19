@@ -3,14 +3,9 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
     data: {
         atcClassification: {
-            teamplate: ['name', 'manufacturer','country','inn','atc'],            
             data: [
                 {
-                    name: '',
-                    manufacturer: '',
-                    country: '',
-                    inn: '',
-                    atc: '',
+                    
                 }
             ]
         },
