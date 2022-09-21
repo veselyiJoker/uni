@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import useBreadcrumbs from 'use-react-router-breadcrumbs'
 import { translate } from '../../i18n/messages/translate'
+import { StyledBreadcrumbs } from './styles'
 
 
 export const Breadcrumbs = () => {
@@ -10,7 +11,7 @@ export const Breadcrumbs = () => {
     const breadcrumbs = useBreadcrumbs()
 
     return (
-        <>
+        <StyledBreadcrumbs>
             {
                 breadcrumbs.map(
                     ({
@@ -34,6 +35,6 @@ export const Breadcrumbs = () => {
                     }
                 )
             }
-        </>
+        </StyledBreadcrumbs>
     )
 }

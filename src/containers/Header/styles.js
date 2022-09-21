@@ -2,9 +2,22 @@ import styled from 'styled-components'
 import {
     NavLink
 } from 'react-router-dom'
+import homeWave from '../../assets/images/home_slider/homeWave.png'
 
 export const StyledHeader = styled.header`
+    position: relative;
 
+    // &::after {
+    //     content: '';
+    //     position: absolute;
+    //     width: 100%;
+    //     left: 0;
+    //     bottom: -70px;
+    //     height: 70px;
+    //     background-image: url(${ homeWave });
+    //     background-repeat: no-repeat;
+    //     z-index: 2;
+    // }
 `
 
 export const Container = styled.div`
