@@ -9,7 +9,7 @@ const Slide = props => {
 
     return (
         <StyledSlide>
-            <SlideImg src = { props.url } alt = { props.alt } />
+            <SlideImg src = { props.src } alt = { props.alt } />
         </StyledSlide>
     )
 }

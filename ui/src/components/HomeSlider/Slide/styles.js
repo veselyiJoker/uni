@@ -12,7 +12,7 @@ export const StyledSlide = styled.div`
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0,0,0,0.03);
+        background: rgba(0,0,0,0.02);
     }
 `
 

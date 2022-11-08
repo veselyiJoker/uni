@@ -1,151 +1,177 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-    partners: [
+    homeSlider: [
+        {
+            src: 'http://localhost:5000/images/homeSlider/slide-1.jpg',
+            alt: ''
+        },
+        {
+            src: 'http://localhost:5000/images/homeSlider/slide-2.jpg',
+            alt: ''
+        },
+        {
+            src: 'http://localhost:5000/images/homeSlider/slide-3.jpg',
+            alt: ''
+        },
+        {
+            src: 'http://localhost:5000/images/homeSlider/slide-4.jpg',
+            alt: ''
+        },
+        {
+            src: 'http://localhost:5000/images/homeSlider/slide-5.jpg',
+            alt: ''
+        },
+        {
+            src: 'http://localhost:5000/images/homeSlider/slide-6.jpg',
+            alt: ''
+        },
+    ],
+    partnersSlider: [
         {
             link: '/distribution/strategic-partners',
-            imgUrl: '#',
-            imgAlt: ''
+            src: 'http://localhost:5000/images/partnersSlider/jpeg/bayer.jpg',
+            alt: ''
         },
         {
             link: '/distribution/strategic-partners',
-            imgUrl: '#',
-            imgAlt: ''
+            src: 'http://localhost:5000/images/partnersSlider/jpeg/academpharm.png',
+            alt: ''
         },
         {
             link: '/distribution/strategic-partners',
-            imgUrl: '#',
-            imgAlt: ''
+            src: 'http://localhost:5000/images/partnersSlider/jpeg/belmedpreparaty.jpg',
+            alt: ''
         },
         {
             link: '/distribution/strategic-partners',
-            imgUrl: '#',
-            imgAlt: ''
+            src: 'http://localhost:5000/images/partnersSlider/jpeg/bouchara_recordati.jpg',
+            alt: ''
         },
         {
             link: '/distribution/strategic-partners',
-            imgUrl: '#',
-            imgAlt: ''
+            src: 'http://localhost:5000/images/partnersSlider/jpeg/bayer.jpg',
+            alt: ''
         },
         {
             link: '/distribution/strategic-partners',
-            imgUrl: '#',
-            imgAlt: ''
+            src: 'http://localhost:5000/images/partnersSlider/jpeg/bayer.jpg',
+            alt: ''
         },
         {
             link: '/distribution/strategic-partners',
-            imgUrl: '#',
-            imgAlt: ''
+            src: '#',
+            alt: ''
         },
         {
             link: '/distribution/strategic-partners',
-            imgUrl: '#',
-            imgAlt: ''
+            src: '#',
+            alt: ''
         },
         {
             link: '/distribution/strategic-partners',
-            imgUrl: '#',
-            imgAlt: ''
+            src: '#',
+            alt: ''
         },
         {
             link: '/distribution/strategic-partners',
-            imgUrl: '#',
-            imgAlt: ''
+            src: '#',
+            alt: ''
         },
         {
             link: '/distribution/strategic-partners',
-            imgUrl: '#',
-            imgAlt: ''
+            src: '#',
+            alt: ''
         },
         {
             link: '/distribution/strategic-partners',
-            imgUrl: '#',
-            imgAlt: ''
+            src: '#',
+            alt: ''
         },
         {
             link: '/distribution/strategic-partners',
-            imgUrl: '#',
-            imgAlt: ''
+            src: '#',
+            alt: ''
         },
         {
             link: '/distribution/strategic-partners',
-            imgUrl: '#',
-            imgAlt: ''
+            src: '#',
+            alt: ''
         },
         {
             link: '/distribution/strategic-partners',
-            imgUrl: '#',
-            imgAlt: ''
+            src: '#',
+            alt: ''
         },
         {
             link: '/distribution/strategic-partners',
-            imgUrl: '#',
-            imgAlt: ''
+            src: '#',
+            alt: ''
         },
         {
             link: '/distribution/strategic-partners',
-            imgUrl: '#',
-            imgAlt: ''
+            src: '#',
+            alt: ''
         },
         {
             link: '/distribution/strategic-partners',
-            imgUrl: '#',
-            imgAlt: ''
+            src: '#',
+            alt: ''
         },
         {
             link: '/distribution/strategic-partners',
-            imgUrl: '#',
-            imgAlt: ''
+            src: '#',
+            alt: ''
         },
         {
             link: '/distribution/strategic-partners',
-            imgUrl: '#',
-            imgAlt: ''
+            src: '#',
+            alt: ''
         },
         {
             link: '/distribution/strategic-partners',
-            imgUrl: '#',
-            imgAlt: ''
+            src: '#',
+            alt: ''
         },
         {
             link: '/distribution/strategic-partners',
-            imgUrl: '#',
-            imgAlt: ''
+            src: '#',
+            alt: ''
         },
         {
             link: '/distribution/strategic-partners',
-            imgUrl: '#',
-            imgAlt: ''
+            src: '#',
+            alt: ''
         },
         {
             link: '/distribution/strategic-partners',
-            imgUrl: '#',
-            imgAlt: ''
+            src: '#',
+            alt: ''
         },
         {
             link: '/distribution/strategic-partners',
-            imgUrl: '#',
-            imgAlt: ''
+            src: '#',
+            alt: ''
         },
         {
             link: '/distribution/strategic-partners',
-            imgUrl: '#',
-            imgAlt: ''
+            src: '#',
+            alt: ''
         },
         {
             link: '/distribution/strategic-partners',
-            imgUrl: '#',
-            imgAlt: ''
+            src: '#',
+            alt: ''
         },
         {
             link: '/distribution/strategic-partners',
-            imgUrl: '#',
-            imgAlt: ''
+            src: '#',
+            alt: ''
         },
         {
             link: '/distribution/strategic-partners',
-            imgUrl: '#',
-            imgAlt: ''
+            src: '#',
+            alt: ''
         }        
     ]
 }

@@ -1,11 +1,7 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import Slide from './Slide/Slide'
-import slide_1 from '../../assets/images/homeSlider/slide_1.jpg'
-import slide_2 from '../../assets/images/homeSlider/slide_2.jpg'
-import slide_3 from '../../assets/images/homeSlider/slide_3.jpg'
-import slide_4 from '../../assets/images/homeSlider/slide_4.jpg'
-import slide_5 from '../../assets/images/homeSlider/slide_5.jpg'
-import slide_6 from '../../assets/images/homeSlider/slide_6.jpg'
+
 import { 
     StyledHomeSlider,
     PrevArrow,
@@ -14,8 +10,9 @@ import {
     Dot,
 } from './styles'
 
-
 const HomeSlider = () => {
+
+    const slidesData = useSelector(state => state.home.homeSlider)
 
     const settings = {
         dots: true,
@@ -31,12 +28,17 @@ const HomeSlider = () => {
 
     return (
         <StyledHomeSlider { ...settings }>
-            <Slide url = { slide_1 } alt = '' />
-            <Slide url = { slide_2 } alt = '' />
-            <Slide url = { slide_3 } alt = '' />
-            <Slide url = { slide_4 } alt = '' />
-            <Slide url = { slide_5 } alt = '' />
-            <Slide url = { slide_6 } alt = '' />
+            {
+                slidesData.map(
+                    (e, i) => (
+                        <Slide
+                            key = { e.link + i }
+                            src = { e.src }
+                            alt = { e.alt }
+                        />
+                    )
+                )
+            }
         </StyledHomeSlider>
     )
 }

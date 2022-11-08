@@ -3,7 +3,7 @@ import HomeSlider from '../../components/HomeSlider/HomeSlider'
 import HomeTiles from '../../components/HomeTiles/HomeTiles'
 import { motion } from 'framer-motion/dist/framer-motion'
 import { pagesTransition } from '../../constants/constants'
-import PartnersInfiniteSlider from '../../components/PartnersInfiniteSlider/PartnersInfiniteSlider'
+import PartnersSlider from '../../components/PartnersSlider/PartnersSlider'
 
 const Home = () => {
 
@@ -13,7 +13,7 @@ const Home = () => {
         >
             <HomeSlider />
             <HomeTiles />
-            <PartnersInfiniteSlider />
+            <PartnersSlider />
         </motion.section>
     )
 }
